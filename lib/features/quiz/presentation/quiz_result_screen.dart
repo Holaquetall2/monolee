@@ -227,6 +227,161 @@ class QuizResultScreen extends StatelessWidget {
 
               const SizedBox(height: 18),
 
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Revisa tus respuestas',
+                  style: TextStyle(
+                    fontSize: 21,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 14),
+
+              ...result.answers.asMap().entries.map((entry) {
+                final index = entry.key;
+                final answer = entry.value;
+                final question = answer.question;
+
+                return Container(
+                  width: double.infinity,
+                  margin: const EdgeInsets.only(bottom: 14),
+                  padding: const EdgeInsets.all(18),
+                  decoration: BoxDecoration(
+                    color: answer.isCorrect
+                        ? Colors.green.withValues(alpha: 0.08)
+                        : Colors.red.withValues(alpha: 0.08),
+                    borderRadius: BorderRadius.circular(18),
+                    border: Border.all(
+                      color: answer.isCorrect
+                          ? Colors.green.withValues(alpha: 0.30)
+                          : Colors.red.withValues(alpha: 0.30),
+                    ),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Icon(
+                            answer.isCorrect
+                                ? Icons.check_circle_rounded
+                                : Icons.cancel_rounded,
+                            color: answer.isCorrect
+                                ? Colors.green
+                                : Colors.red,
+                          ),
+
+                          const SizedBox(width: 10),
+
+                          Expanded(
+                            child: Text(
+                              'Pregunta ${index + 1}',
+                              style: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+
+                          Text(
+                            answer.isCorrect
+                                ? 'Correcta'
+                                : 'Incorrecta',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: answer.isCorrect
+                                  ? Colors.green
+                                  : Colors.red,
+                            ),
+                          ),
+                        ],
+                      ),
+
+                      const SizedBox(height: 12),
+
+                      Text(
+                        question.text,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          height: 1.35,
+                        ),
+                      ),
+
+                      const SizedBox(height: 14),
+
+                      Text(
+                        'Tu respuesta:',
+                        style: TextStyle(
+                          fontSize: 13,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey.shade700,
+                        ),
+                      ),
+
+                      const SizedBox(height: 4),
+
+                      Text(
+                        answer.answer,
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: answer.isCorrect
+                              ? Colors.green.shade800
+                              : Colors.red.shade800,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+
+                      if (!answer.isCorrect) ...[
+                        const SizedBox(height: 12),
+
+                        Text(
+                          'Respuesta correcta:',
+                          style: TextStyle(
+                            fontSize: 13,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.grey.shade700,
+                          ),
+                        ),
+
+                        const SizedBox(height: 4),
+
+                        Text(
+                          question.correctAnswer,
+                          style: TextStyle(
+                            fontSize: 15,
+                            color: Colors.green.shade800,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
+
+                      const SizedBox(height: 12),
+
+                      Container(
+                        width: double.infinity,
+                        padding: const EdgeInsets.all(14),
+                        decoration: BoxDecoration(
+                          color: Colors.white.withValues(alpha: 0.65),
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                        child: Text(
+                          question.explanation,
+                          style: const TextStyle(
+                            fontSize: 14,
+                            height: 1.4,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              }),
+
               SizedBox(
                 width: double.infinity,
                 height: 56,

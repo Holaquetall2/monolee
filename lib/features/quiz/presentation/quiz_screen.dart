@@ -74,30 +74,9 @@ class _QuizScreenState extends State<QuizScreen> {
   }
 
   Future<void> showResult(QuizResult result) async {
-    final currentProgress =
-        await progressRepository.loadProgress();
-
-    final alreadyCompleted =
-        currentProgress.completedStoryIds.contains(widget.storyId);
-
-    final updatedStoryIds = [
-      ...currentProgress.completedStoryIds,
-    ];
-
-    if (!alreadyCompleted) {
-      updatedStoryIds.add(widget.storyId);
-    }
-
-    final updatedProgress = currentProgress.copyWith(
-      storiesCompleted: updatedStoryIds.length,
-      completedStoryIds: updatedStoryIds,
-      stars: alreadyCompleted
-          ? currentProgress.stars
-          : currentProgress.stars + result.stars,
-    );
-
-    await progressRepository.saveProgress(
-      updatedProgress,
+    await progressRepository.registerStoryCompletion(
+      storyId: widget.storyId,
+      earnedStars: result.stars,
     );
 
     if (!mounted) {
