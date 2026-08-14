@@ -41,11 +41,7 @@ class _StoryListScreenState extends State<StoryListScreen> {
   Future<void> _openStory(Story story) async {
     await Navigator.push(
       context,
-      MaterialPageRoute(
-        builder: (context) => StoryReaderScreen(
-          story: story,
-        ),
-      ),
+      MaterialPageRoute(builder: (context) => StoryReaderScreen(story: story)),
     );
 
     await _loadProgress();
@@ -101,9 +97,7 @@ class _StoryListScreenState extends State<StoryListScreen> {
                 width: double.infinity,
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  color: Theme.of(context)
-                      .colorScheme
-                      .primaryContainer,
+                  color: Theme.of(context).colorScheme.primaryContainer,
                   borderRadius: BorderRadius.circular(24),
                 ),
                 child: Column(
@@ -121,10 +115,8 @@ class _StoryListScreenState extends State<StoryListScreen> {
                       _loading
                           ? 'Cargando tu progreso...'
                           : '${_progress.storiesCompleted} de '
-                              '${stories.length} historias completadas',
-                      style: const TextStyle(
-                        fontSize: 15,
-                      ),
+                                '${stories.length} historias completadas',
+                      style: const TextStyle(fontSize: 15),
                     ),
                     const SizedBox(height: 12),
                     if (!_loading)
@@ -134,8 +126,7 @@ class _StoryListScreenState extends State<StoryListScreen> {
                           minHeight: 9,
                           value: stories.isEmpty
                               ? 0
-                              : _progress.storiesCompleted /
-                                  stories.length,
+                              : _progress.storiesCompleted / stories.length,
                         ),
                       ),
                   ],
@@ -150,8 +141,7 @@ class _StoryListScreenState extends State<StoryListScreen> {
                 itemBuilder: (context, index) {
                   final story = stories[index];
 
-                  final completed =
-                      _progress.completedStoryIds.contains(
+                  final completed = _progress.completedStoryIds.contains(
                     story.id,
                   );
 
@@ -167,26 +157,21 @@ class _StoryListScreenState extends State<StoryListScreen> {
                         child: Padding(
                           padding: const EdgeInsets.all(18),
                           child: Row(
-                            crossAxisAlignment:
-                                CrossAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
                                 width: 66,
                                 height: 66,
                                 decoration: BoxDecoration(
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .primary
-                                      .withValues(alpha: 0.10),
-                                  borderRadius:
-                                      BorderRadius.circular(20),
+                                  color: Theme.of(
+                                    context,
+                                  ).colorScheme.primary.withValues(alpha: 0.10),
+                                  borderRadius: BorderRadius.circular(20),
                                 ),
                                 child: Center(
                                   child: Text(
                                     _storyEmoji(story.id),
-                                    style: const TextStyle(
-                                      fontSize: 36,
-                                    ),
+                                    style: const TextStyle(fontSize: 36),
                                   ),
                                 ),
                               ),
@@ -195,8 +180,7 @@ class _StoryListScreenState extends State<StoryListScreen> {
 
                               Expanded(
                                 child: Column(
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
                                       story.title,
@@ -234,8 +218,7 @@ class _StoryListScreenState extends State<StoryListScreen> {
                                           text: story.readingTime,
                                         ),
                                         _DifficultyTag(
-                                          difficulty:
-                                              story.difficulty,
+                                          difficulty: story.difficulty,
                                           color: _difficultyColor(
                                             story.difficulty,
                                           ),
@@ -249,10 +232,8 @@ class _StoryListScreenState extends State<StoryListScreen> {
                                       children: [
                                         Icon(
                                           completed
-                                              ? Icons
-                                                  .check_circle_rounded
-                                              : Icons
-                                                  .radio_button_unchecked,
+                                              ? Icons.check_circle_rounded
+                                              : Icons.radio_button_unchecked,
                                           size: 20,
                                           color: completed
                                               ? Colors.green
@@ -264,12 +245,10 @@ class _StoryListScreenState extends State<StoryListScreen> {
                                               ? 'Completada'
                                               : 'Pendiente',
                                           style: TextStyle(
-                                            fontWeight:
-                                                FontWeight.w700,
+                                            fontWeight: FontWeight.w700,
                                             color: completed
                                                 ? Colors.green
-                                                : Colors.grey
-                                                    .shade700,
+                                                : Colors.grey.shade700,
                                           ),
                                         ),
                                       ],
@@ -307,18 +286,12 @@ class _InfoTag extends StatelessWidget {
   final IconData icon;
   final String text;
 
-  const _InfoTag({
-    required this.icon,
-    required this.text,
-  });
+  const _InfoTag({required this.icon, required this.text});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 10,
-        vertical: 7,
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
       decoration: BoxDecoration(
         color: Colors.grey.shade100,
         borderRadius: BorderRadius.circular(12),
@@ -326,18 +299,11 @@ class _InfoTag extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(
-            icon,
-            size: 15,
-            color: Colors.grey.shade700,
-          ),
+          Icon(icon, size: 15, color: Colors.grey.shade700),
           const SizedBox(width: 5),
           Text(
             text,
-            style: const TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w600,
-            ),
+            style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
           ),
         ],
       ),
@@ -349,18 +315,12 @@ class _DifficultyTag extends StatelessWidget {
   final String difficulty;
   final Color color;
 
-  const _DifficultyTag({
-    required this.difficulty,
-    required this.color,
-  });
+  const _DifficultyTag({required this.difficulty, required this.color});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 10,
-        vertical: 7,
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
       decoration: BoxDecoration(
         color: color.withValues(alpha: 0.12),
         borderRadius: BorderRadius.circular(12),

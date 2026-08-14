@@ -63,11 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     await Navigator.push(
       context,
-      MaterialPageRoute(
-        builder: (context) => StoryReaderScreen(
-          story: story,
-        ),
-      ),
+      MaterialPageRoute(builder: (context) => StoryReaderScreen(story: story)),
     );
 
     await _loadProgress();
@@ -76,9 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<void> _openStories() async {
     await Navigator.push(
       context,
-      MaterialPageRoute(
-        builder: (context) => const StoryListScreen(),
-      ),
+      MaterialPageRoute(builder: (context) => const StoryListScreen()),
     );
 
     await _loadProgress();
@@ -87,9 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<void> _openProgress() async {
     await Navigator.push(
       context,
-      MaterialPageRoute(
-        builder: (context) => const ProgressScreen(),
-      ),
+      MaterialPageRoute(builder: (context) => const ProgressScreen()),
     );
 
     await _loadProgress();
@@ -102,8 +94,8 @@ class _HomeScreenState extends State<HomeScreen> {
     final adventureButtonText = _progress.storiesCompleted == 0
         ? 'Comenzar aventura'
         : _progress.storiesCompleted < totalStories
-            ? 'Continuar aventura'
-            : 'Volver a jugar';
+        ? 'Continuar aventura'
+        : 'Volver a jugar';
 
     return Scaffold(
       body: SafeArea(
@@ -113,12 +105,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               const Spacer(),
 
-              const Text(
-                '🐵',
-                style: TextStyle(
-                  fontSize: 90,
-                ),
-              ),
+              const Text('🐵', style: TextStyle(fontSize: 90)),
 
               const SizedBox(height: 12),
 
@@ -136,10 +123,7 @@ class _HomeScreenState extends State<HomeScreen> {
               const Text(
                 'Cada historia es una aventura',
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 18,
-                  color: AppColors.text,
-                ),
+                style: TextStyle(fontSize: 18, color: AppColors.text),
               ),
 
               const SizedBox(height: 40),
@@ -149,10 +133,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 58,
                 child: ElevatedButton.icon(
                   onPressed: _startAdventure,
-                  icon: const Icon(
-                    Icons.auto_stories,
-                    size: 24,
-                  ),
+                  icon: const Icon(Icons.auto_stories, size: 24),
                   label: Text(
                     adventureButtonText,
                     style: const TextStyle(
@@ -178,23 +159,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 58,
                 child: OutlinedButton.icon(
                   onPressed: _openStories,
-                  icon: const Icon(
-                    Icons.menu_book,
-                    size: 24,
-                  ),
+                  icon: const Icon(Icons.menu_book, size: 24),
                   label: const Text(
                     'Explorar historias',
-                    style: TextStyle(
-                      fontSize: 17,
-                      fontWeight: FontWeight.w600,
-                    ),
+                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
                   ),
                   style: OutlinedButton.styleFrom(
                     foregroundColor: AppColors.primary,
-                    side: const BorderSide(
-                      color: AppColors.primary,
-                      width: 2,
-                    ),
+                    side: const BorderSide(color: AppColors.primary, width: 2),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(18),
                     ),
@@ -244,17 +216,13 @@ class _HomeScreenState extends State<HomeScreen> {
                               Text(
                                 '${_progress.storiesCompleted} de $totalStories '
                                 'historias • ⭐ ${_progress.stars}',
-                                style: const TextStyle(
-                                  fontSize: 14,
-                                ),
+                                style: const TextStyle(fontSize: 14),
                               ),
                           ],
                         ),
                       ),
 
-                      const Icon(
-                        Icons.chevron_right,
-                      ),
+                      const Icon(Icons.chevron_right),
                     ],
                   ),
                 ),

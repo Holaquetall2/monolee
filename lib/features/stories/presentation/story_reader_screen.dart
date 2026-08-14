@@ -7,17 +7,12 @@ import '../../quiz/presentation/quiz_screen.dart';
 class StoryReaderScreen extends StatelessWidget {
   final Story story;
 
-  const StoryReaderScreen({
-    super.key,
-    required this.story,
-  });
+  const StoryReaderScreen({super.key, required this.story});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Leyendo'),
-      ),
+      appBar: AppBar(title: const Text('Leyendo')),
       body: Column(
         children: [
           Expanded(
@@ -27,12 +22,7 @@ class StoryReaderScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Center(
-                    child: Text(
-                      '🦊',
-                      style: TextStyle(
-                        fontSize: 72,
-                      ),
-                    ),
+                    child: Text('🦊', style: TextStyle(fontSize: 72)),
                   ),
 
                   const SizedBox(height: 16),
@@ -51,18 +41,12 @@ class StoryReaderScreen extends StatelessWidget {
                     spacing: 8,
                     runSpacing: 8,
                     children: [
-                      _InfoChip(
-                        icon: Icons.auto_stories,
-                        text: story.category,
-                      ),
+                      _InfoChip(icon: Icons.auto_stories, text: story.category),
                       _InfoChip(
                         icon: Icons.signal_cellular_alt,
                         text: story.difficulty,
                       ),
-                      _InfoChip(
-                        icon: Icons.schedule,
-                        text: story.readingTime,
-                      ),
+                      _InfoChip(icon: Icons.schedule, text: story.readingTime),
                     ],
                   ),
 
@@ -85,10 +69,7 @@ class StoryReaderScreen extends StatelessWidget {
 
                   Text(
                     story.content,
-                    style: const TextStyle(
-                      fontSize: 19,
-                      height: 1.7,
-                    ),
+                    style: const TextStyle(fontSize: 19, height: 1.7),
                   ),
                 ],
               ),
@@ -105,21 +86,16 @@ class StoryReaderScreen extends StatelessWidget {
                 child: ElevatedButton.icon(
                   onPressed: () {
                     Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                        builder: (context) => QuizScreen(
-                            storyId: story.id,
-                        ),
-                        ),
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => QuizScreen(storyId: story.id),
+                      ),
                     );
-                    },
+                  },
                   icon: const Icon(Icons.check_circle_outline),
                   label: const Text(
                     'Terminé de leer',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
@@ -135,19 +111,10 @@ class _InfoChip extends StatelessWidget {
   final IconData icon;
   final String text;
 
-  const _InfoChip({
-    required this.icon,
-    required this.text,
-  });
+  const _InfoChip({required this.icon, required this.text});
 
   @override
   Widget build(BuildContext context) {
-    return Chip(
-      avatar: Icon(
-        icon,
-        size: 18,
-      ),
-      label: Text(text),
-    );
+    return Chip(avatar: Icon(icon, size: 18), label: Text(text));
   }
 }

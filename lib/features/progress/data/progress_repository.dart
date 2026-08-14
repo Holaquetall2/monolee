@@ -19,37 +19,26 @@ class ProgressRepository {
     return UserProgress(
       storiesCompleted: completedStoryIds.length,
       stars: preferences.getInt(_starsKey) ?? 0,
-      adventuresCompleted:
-          preferences.getInt(_adventuresCompletedKey) ?? 0,
+      adventuresCompleted: preferences.getInt(_adventuresCompletedKey) ?? 0,
       streak: preferences.getInt(_streakKey) ?? 0,
       completedStoryIds: completedStoryIds,
-      lastReadingDate:
-          preferences.getString(_lastReadingDateKey),
+      lastReadingDate: preferences.getString(_lastReadingDateKey),
     );
   }
 
   Future<void> saveProgress(UserProgress progress) async {
     final preferences = await SharedPreferences.getInstance();
 
-    await preferences.setInt(
-      _storiesCompletedKey,
-      progress.storiesCompleted,
-    );
+    await preferences.setInt(_storiesCompletedKey, progress.storiesCompleted);
 
-    await preferences.setInt(
-      _starsKey,
-      progress.stars,
-    );
+    await preferences.setInt(_starsKey, progress.stars);
 
     await preferences.setInt(
       _adventuresCompletedKey,
       progress.adventuresCompleted,
     );
 
-    await preferences.setInt(
-      _streakKey,
-      progress.streak,
-    );
+    await preferences.setInt(_streakKey, progress.streak);
 
     await preferences.setStringList(
       _completedStoryIdsKey,
@@ -70,12 +59,9 @@ class ProgressRepository {
   }) async {
     final currentProgress = await loadProgress();
 
-    final completedStoryIds = [
-      ...currentProgress.completedStoryIds,
-    ];
+    final completedStoryIds = [...currentProgress.completedStoryIds];
 
-    final alreadyCompleted =
-        completedStoryIds.contains(storyId);
+    final alreadyCompleted = completedStoryIds.contains(storyId);
 
     if (!alreadyCompleted) {
       completedStoryIds.add(storyId);
@@ -83,19 +69,14 @@ class ProgressRepository {
 
     final now = DateTime.now();
 
-    final today = DateTime(
-      now.year,
-      now.month,
-      now.day,
-    );
+    final today = DateTime(now.year, now.month, now.day);
 
     var newStreak = currentProgress.streak;
 
     if (currentProgress.lastReadingDate == null) {
       newStreak = 1;
     } else {
-      final lastDate =
-          DateTime.parse(currentProgress.lastReadingDate!);
+      final lastDate = DateTime.parse(currentProgress.lastReadingDate!);
 
       final normalizedLastDate = DateTime(
         lastDate.year,
@@ -103,8 +84,7 @@ class ProgressRepository {
         lastDate.day,
       );
 
-      final difference =
-          today.difference(normalizedLastDate).inDays;
+      final difference = today.difference(normalizedLastDate).inDays;
 
       if (difference == 1) {
         newStreak = currentProgress.streak + 1;

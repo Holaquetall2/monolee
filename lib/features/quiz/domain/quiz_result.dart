@@ -15,9 +15,7 @@ class QuizAnswer {
 class QuizResult {
   final List<QuizAnswer> answers;
 
-  const QuizResult({
-    required this.answers,
-  });
+  const QuizResult({required this.answers});
 
   int get totalQuestions {
     return answers.length;

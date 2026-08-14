@@ -10,10 +10,6 @@ class AppTheme {
       seedColor: AppColors.primary,
       secondary: AppColors.secondary,
     ),
-    textTheme: const TextTheme(
-      bodyMedium: TextStyle(
-        color: AppColors.text,
-      ),
-    ),
+    textTheme: const TextTheme(bodyMedium: TextStyle(color: AppColors.text)),
   );
 }

@@ -9,10 +9,7 @@ import 'quiz_result_screen.dart';
 class QuizScreen extends StatefulWidget {
   final String storyId;
 
-  const QuizScreen({
-    super.key,
-    required this.storyId,
-  });
+  const QuizScreen({super.key, required this.storyId});
 
   @override
   State<QuizScreen> createState() => _QuizScreenState();
@@ -31,8 +28,7 @@ class _QuizScreenState extends State<QuizScreen> {
   void initState() {
     super.initState();
 
-    questions =
-        QuizRepository.questionsByStory[widget.storyId] ?? [];
+    questions = QuizRepository.questionsByStory[widget.storyId] ?? [];
   }
 
   void selectAnswer(String answer) {
@@ -47,8 +43,7 @@ class _QuizScreenState extends State<QuizScreen> {
     }
 
     final question = questions[currentQuestion];
-    final isCorrect =
-        selectedAnswer == question.correctAnswer;
+    final isCorrect = selectedAnswer == question.correctAnswer;
 
     answers.add(
       QuizAnswer(
@@ -59,9 +54,7 @@ class _QuizScreenState extends State<QuizScreen> {
     );
 
     if (currentQuestion == questions.length - 1) {
-      final result = QuizResult(
-        answers: List.unmodifiable(answers),
-      );
+      final result = QuizResult(answers: List.unmodifiable(answers));
 
       showResult(result);
       return;
@@ -86,10 +79,8 @@ class _QuizScreenState extends State<QuizScreen> {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) => QuizResultScreen(
-          result: result,
-          storyId: widget.storyId,
-        ),
+        builder: (context) =>
+            QuizResultScreen(result: result, storyId: widget.storyId),
       ),
     );
   }
@@ -98,11 +89,7 @@ class _QuizScreenState extends State<QuizScreen> {
   Widget build(BuildContext context) {
     if (questions.isEmpty) {
       return const Scaffold(
-        body: Center(
-          child: Text(
-            'No hay preguntas disponibles.',
-          ),
-        ),
+        body: Center(child: Text('No hay preguntas disponibles.')),
       );
     }
 
@@ -110,9 +97,7 @@ class _QuizScreenState extends State<QuizScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Pregunta ${currentQuestion + 1} de ${questions.length}',
-        ),
+        title: Text('Pregunta ${currentQuestion + 1} de ${questions.length}'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(24),
@@ -120,8 +105,7 @@ class _QuizScreenState extends State<QuizScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             LinearProgressIndicator(
-              value:
-                  (currentQuestion + 1) / questions.length,
+              value: (currentQuestion + 1) / questions.length,
             ),
             const SizedBox(height: 32),
             Text(
@@ -136,44 +120,32 @@ class _QuizScreenState extends State<QuizScreen> {
             Expanded(
               child: ListView(
                 children: question.options.map((option) {
-                  final isSelected =
-                      selectedAnswer == option;
+                  final isSelected = selectedAnswer == option;
 
                   return Padding(
-                    padding:
-                        const EdgeInsets.only(bottom: 12),
+                    padding: const EdgeInsets.only(bottom: 12),
                     child: InkWell(
-                      borderRadius:
-                          BorderRadius.circular(16),
+                      borderRadius: BorderRadius.circular(16),
                       onTap: () => selectAnswer(option),
                       child: Container(
-                        padding:
-                            const EdgeInsets.all(18),
+                        padding: const EdgeInsets.all(18),
                         decoration: BoxDecoration(
-                          borderRadius:
-                              BorderRadius.circular(16),
+                          borderRadius: BorderRadius.circular(16),
                           border: Border.all(
                             color: isSelected
-                                ? Theme.of(context)
-                                    .colorScheme
-                                    .primary
+                                ? Theme.of(context).colorScheme.primary
                                 : Colors.grey.shade300,
                             width: isSelected ? 2 : 1,
                           ),
                           color: isSelected
-                              ? Theme.of(context)
-                                  .colorScheme
-                                  .primary
-                                  .withValues(
-                                    alpha: 0.1,
-                                  )
+                              ? Theme.of(
+                                  context,
+                                ).colorScheme.primary.withValues(alpha: 0.1)
                               : null,
                         ),
                         child: Text(
                           option,
-                          style: const TextStyle(
-                            fontSize: 17,
-                          ),
+                          style: const TextStyle(fontSize: 17),
                         ),
                       ),
                     ),
@@ -185,12 +157,9 @@ class _QuizScreenState extends State<QuizScreen> {
               width: double.infinity,
               height: 56,
               child: ElevatedButton(
-                onPressed: selectedAnswer == null
-                    ? null
-                    : nextQuestion,
+                onPressed: selectedAnswer == null ? null : nextQuestion,
                 child: Text(
-                  currentQuestion ==
-                          questions.length - 1
+                  currentQuestion == questions.length - 1
                       ? 'Terminar'
                       : 'Siguiente',
                   style: const TextStyle(

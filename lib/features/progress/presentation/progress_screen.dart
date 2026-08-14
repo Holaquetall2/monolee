@@ -39,11 +39,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
   @override
   Widget build(BuildContext context) {
     if (loading || progress == null) {
-      return const Scaffold(
-        body: Center(
-          child: CircularProgressIndicator(),
-        ),
-      );
+      return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
 
     final currentProgress = progress!;
@@ -56,10 +52,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
     final progressPercentage = (progressValue * 100).round();
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Mi aventura'),
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: const Text('Mi aventura'), centerTitle: true),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.fromLTRB(20, 16, 20, 30),
@@ -69,18 +62,11 @@ class _ProgressScreenState extends State<ProgressScreen> {
                 width: 110,
                 height: 110,
                 decoration: BoxDecoration(
-                  color: Theme.of(context)
-                      .colorScheme
-                      .primaryContainer,
+                  color: Theme.of(context).colorScheme.primaryContainer,
                   shape: BoxShape.circle,
                 ),
                 child: const Center(
-                  child: Text(
-                    '🐵',
-                    style: TextStyle(
-                      fontSize: 62,
-                    ),
-                  ),
+                  child: Text('🐵', style: TextStyle(fontSize: 62)),
                 ),
               ),
 
@@ -88,10 +74,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
 
               const Text(
                 'Mi aventura',
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
 
               const SizedBox(height: 8),
@@ -112,10 +95,9 @@ class _ProgressScreenState extends State<ProgressScreen> {
                 width: double.infinity,
                 padding: const EdgeInsets.all(22),
                 decoration: BoxDecoration(
-                  color: Theme.of(context)
-                      .colorScheme
-                      .primary
-                      .withValues(alpha: 0.08),
+                  color: Theme.of(
+                    context,
+                  ).colorScheme.primary.withValues(alpha: 0.08),
                   borderRadius: BorderRadius.circular(24),
                 ),
                 child: Column(
@@ -136,9 +118,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: Theme.of(context)
-                                .colorScheme
-                                .primary,
+                            color: Theme.of(context).colorScheme.primary,
                           ),
                         ),
                       ],
@@ -179,8 +159,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
                     child: _StatCard(
                       icon: '📚',
                       title: 'Historias',
-                      value:
-                          '${currentProgress.storiesCompleted}',
+                      value: '${currentProgress.storiesCompleted}',
                     ),
                   ),
                   const SizedBox(width: 12),
@@ -210,8 +189,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
                     child: _StatCard(
                       icon: '🏆',
                       title: 'Logros',
-                      value:
-                          '${_unlockedAchievements(currentProgress)}',
+                      value: '${_unlockedAchievements(currentProgress)}',
                     ),
                   ),
                 ],
@@ -223,10 +201,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
                 alignment: Alignment.centerLeft,
                 child: Text(
                   'Logros',
-                  style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                 ),
               ),
 
@@ -236,25 +211,23 @@ class _ProgressScreenState extends State<ProgressScreen> {
                 icon: '🌟',
                 title: 'Primera aventura',
                 description: 'Completa tu primera historia.',
-                unlocked:
-                    currentProgress.storiesCompleted >= 1,
+                unlocked: currentProgress.storiesCompleted >= 1,
               ),
 
               _AchievementCard(
                 icon: '📚',
                 title: 'Lector curioso',
                 description: 'Completa 3 historias.',
-                unlocked:
-                    currentProgress.storiesCompleted >= 3,
+                unlocked: currentProgress.storiesCompleted >= 3,
               ),
 
               _AchievementCard(
                 icon: '🧭',
                 title: 'Gran explorador',
                 description: 'Completa todas las historias.',
-                unlocked: totalStories > 0 &&
-                    currentProgress.storiesCompleted >=
-                        totalStories,
+                unlocked:
+                    totalStories > 0 &&
+                    currentProgress.storiesCompleted >= totalStories,
               ),
 
               _AchievementCard(
@@ -277,9 +250,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
                 width: double.infinity,
                 padding: const EdgeInsets.all(22),
                 decoration: BoxDecoration(
-                  color: Theme.of(context)
-                      .colorScheme
-                      .secondaryContainer,
+                  color: Theme.of(context).colorScheme.secondaryContainer,
                   borderRadius: BorderRadius.circular(24),
                 ),
                 child: Column(
@@ -294,15 +265,9 @@ class _ProgressScreenState extends State<ProgressScreen> {
                     ),
                     const SizedBox(height: 10),
                     Text(
-                      _footerMessage(
-                        currentProgress,
-                        totalStories,
-                      ),
+                      _footerMessage(currentProgress, totalStories),
                       textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        fontSize: 15,
-                        height: 1.4,
-                      ),
+                      style: const TextStyle(fontSize: 15, height: 1.4),
                     ),
                   ],
                 ),
@@ -326,21 +291,16 @@ class _ProgressScreenState extends State<ProgressScreen> {
     return '¡Cada historia te está convirtiendo en un mejor explorador!';
   }
 
-  String _footerMessage(
-    UserProgress progress,
-    int totalStories,
-  ) {
+  String _footerMessage(UserProgress progress, int totalStories) {
     if (progress.storiesCompleted == 0) {
       return 'Elige una historia y comienza tu primera aventura.';
     }
 
-    if (progress.storiesCompleted >= totalStories &&
-        totalStories > 0) {
+    if (progress.storiesCompleted >= totalStories && totalStories > 0) {
       return '¡Completaste todas las historias de MonoLee 1.0!';
     }
 
-    final remaining =
-        totalStories - progress.storiesCompleted;
+    final remaining = totalStories - progress.storiesCompleted;
 
     return 'Te faltan $remaining '
         '${remaining == 1 ? 'historia' : 'historias'} '
@@ -360,8 +320,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
       count++;
     }
 
-    if (totalStories > 0 &&
-        progress.storiesCompleted >= totalStories) {
+    if (totalStories > 0 && progress.storiesCompleted >= totalStories) {
       count++;
     }
 
@@ -391,25 +350,15 @@ class _StatCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 14,
-        vertical: 18,
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 18),
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(
-          color: Colors.grey.shade300,
-        ),
+        border: Border.all(color: Colors.grey.shade300),
       ),
       child: Column(
         children: [
-          Text(
-            icon,
-            style: const TextStyle(
-              fontSize: 32,
-            ),
-          ),
+          Text(icon, style: const TextStyle(fontSize: 32)),
           const SizedBox(height: 8),
           Text(
             value,
@@ -417,19 +366,14 @@ class _StatCard extends StatelessWidget {
             style: TextStyle(
               fontSize: 23,
               fontWeight: FontWeight.bold,
-              color: Theme.of(context)
-                  .colorScheme
-                  .primary,
+              color: Theme.of(context).colorScheme.primary,
             ),
           ),
           const SizedBox(height: 4),
           Text(
             title,
             textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w600,
-            ),
+            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
           ),
         ],
       ),
@@ -458,18 +402,12 @@ class _AchievementCard extends StatelessWidget {
       padding: const EdgeInsets.all(17),
       decoration: BoxDecoration(
         color: unlocked
-            ? Theme.of(context)
-                .colorScheme
-                .primary
-                .withValues(alpha: 0.08)
+            ? Theme.of(context).colorScheme.primary.withValues(alpha: 0.08)
             : Colors.grey.shade100,
         borderRadius: BorderRadius.circular(18),
         border: Border.all(
           color: unlocked
-              ? Theme.of(context)
-                  .colorScheme
-                  .primary
-                  .withValues(alpha: 0.30)
+              ? Theme.of(context).colorScheme.primary.withValues(alpha: 0.30)
               : Colors.grey.shade300,
         ),
       ),
@@ -481,17 +419,13 @@ class _AchievementCard extends StatelessWidget {
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               color: unlocked
-                  ? Theme.of(context)
-                      .colorScheme
-                      .primaryContainer
+                  ? Theme.of(context).colorScheme.primaryContainer
                   : Colors.grey.shade200,
             ),
             child: Center(
               child: Text(
                 unlocked ? icon : '🔒',
-                style: const TextStyle(
-                  fontSize: 26,
-                ),
+                style: const TextStyle(fontSize: 26),
               ),
             ),
           ),
@@ -500,8 +434,7 @@ class _AchievementCard extends StatelessWidget {
 
           Expanded(
             child: Column(
-              crossAxisAlignment:
-                  CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   title,
@@ -513,22 +446,15 @@ class _AchievementCard extends StatelessWidget {
                 const SizedBox(height: 4),
                 Text(
                   description,
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.grey.shade700,
-                  ),
+                  style: TextStyle(fontSize: 14, color: Colors.grey.shade700),
                 ),
               ],
             ),
           ),
 
           Icon(
-            unlocked
-                ? Icons.check_circle_rounded
-                : Icons.lock_outline_rounded,
-            color: unlocked
-                ? Colors.green
-                : Colors.grey,
+            unlocked ? Icons.check_circle_rounded : Icons.lock_outline_rounded,
+            color: unlocked ? Colors.green : Colors.grey,
           ),
         ],
       ),

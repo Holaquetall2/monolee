@@ -313,5 +313,292 @@ El anciano comprendió que había recibido mucho del árbol y se sintió agradec
 Desde entonces, recordó siempre aquel viejo jardín y todo lo que el árbol había hecho por él.
 ''',
     ),
+    Story(
+      id: 'el-cuervo-y-la-jarra',
+      title: 'El cuervo y la jarra',
+      category: 'Fábula',
+      difficulty: 'Fácil',
+      readingTime: '4 min',
+      description:
+          'Un cuervo sediento encuentra agua, pero tendrá que pensar con ingenio para alcanzarla.',
+      content: '''
+Un día muy caluroso, un cuervo volaba buscando agua.
+
+Había recorrido una gran distancia y comenzaba a sentirse cansado.
+
+De pronto vio una jarra junto a una casa.
+
+Se acercó rápidamente y miró dentro.
+
+Había agua, pero estaba muy abajo.
+
+El cuervo introdujo el pico, pero no logró alcanzarla.
+
+Intentó mover la jarra, pero era demasiado pesada.
+
+Entonces se quedó pensando.
+
+Cerca de la jarra había muchas piedras pequeñas.
+
+El cuervo tomó una piedra con el pico y la dejó caer dentro de la jarra.
+
+Después tomó otra.
+
+Y otra más.
+
+Poco a poco, el nivel del agua comenzó a subir.
+
+El cuervo siguió colocando piedras hasta que el agua quedó lo suficientemente cerca.
+
+Entonces bebió toda el agua que necesitaba.
+
+Antes de marcharse, miró la jarra satisfecho.
+
+No había podido resolver el problema usando fuerza, pero sí usando paciencia e inteligencia.
+''',
+    ),
+
+    Story(
+      id: 'la-zorra-y-el-cuervo',
+      title: 'La zorra y el cuervo',
+      category: 'Fábula',
+      difficulty: 'Fácil',
+      readingTime: '4 min',
+      description:
+          'Un cuervo tiene un trozo de comida y una astuta zorra intentará conseguirlo con palabras.',
+      content: '''
+Un cuervo estaba posado sobre la rama de un árbol.
+
+En su pico sostenía un trozo de queso que había encontrado.
+
+Una zorra que caminaba por allí vio el queso y quiso conseguirlo.
+
+Sabía que no podía subir hasta la rama.
+
+Entonces tuvo una idea.
+
+—¡Qué hermoso eres, señor cuervo! —dijo la zorra.
+
+El cuervo la miró sorprendido.
+
+—Tus plumas son brillantes y elegantes. Estoy segura de que también tienes una voz maravillosa.
+
+El cuervo se sintió muy orgulloso.
+
+La zorra continuó:
+
+—Si cantaras una canción, seguramente serías el rey de todas las aves.
+
+El cuervo quiso demostrar que tenía una gran voz.
+
+Abrió el pico para cantar.
+
+En ese instante, el queso cayó al suelo.
+
+La zorra lo tomó rápidamente.
+
+—Gracias por el queso —dijo antes de marcharse—. Recuerda que no siempre debes creer todo lo que alguien dice para halagarte.
+
+El cuervo comprendió que había dejado que su orgullo lo engañara.
+''',
+    ),
+
+    Story(
+      id: 'el-perro-y-su-reflejo',
+      title: 'El perro y su reflejo',
+      category: 'Fábula',
+      difficulty: 'Fácil',
+      readingTime: '4 min',
+      description:
+          'Un perro que lleva comida ve algo en el agua y por querer más termina perdiendo lo que ya tenía.',
+      content: '''
+Un perro caminaba feliz por un sendero llevando un gran trozo de carne en el hocico.
+
+Había encontrado la comida después de buscar durante mucho tiempo.
+
+Para regresar a casa debía cruzar un pequeño puente sobre un río.
+
+Mientras caminaba por el puente, miró hacia abajo.
+
+En el agua vio a otro perro que también parecía llevar un trozo de carne.
+
+El perro no comprendió que estaba viendo su propio reflejo.
+
+—Ese perro tiene un pedazo de carne aún más grande que el mío —pensó.
+
+Entonces decidió quitárselo.
+
+Abrió la boca y ladró hacia el agua.
+
+En ese momento, su trozo de carne cayó desde el hocico y desapareció en el río.
+
+El perro observó cómo la corriente se llevaba su comida.
+
+Entonces comprendió que el supuesto perro del agua era solamente su reflejo.
+
+Había perdido lo que ya tenía por querer conseguir algo que en realidad no existía.
+
+Regresó a casa con hambre y con una importante lección aprendida.
+''',
+    ),
+
+    Story(
+      id: 'el-misterio-del-faro-apagado',
+      title: 'El misterio del faro apagado',
+      category: 'Cuento',
+      difficulty: 'Medio',
+      readingTime: '6 min',
+      description:
+          'Una noche, un faro deja de funcionar y Martina decide descubrir qué ocurrió.',
+      content: '''
+Martina vivía en un pequeño pueblo junto al mar.
+
+Desde la ventana de su habitación podía ver un antiguo faro sobre una colina.
+
+Todas las noches, la luz del faro giraba lentamente y ayudaba a los barcos a orientarse.
+
+Pero una noche ocurrió algo extraño.
+
+El faro permaneció completamente oscuro.
+
+Martina miró hacia el mar.
+
+A lo lejos se veía un barco avanzando lentamente.
+
+—El faro debería estar encendido —pensó preocupada.
+
+Fue a buscar a su abuelo, quien conocía muy bien el lugar.
+
+Los dos caminaron hasta la colina llevando linternas.
+
+Cuando llegaron, encontraron la puerta del faro cerrada, pero escucharon un ruido en el interior.
+
+—¿Hay alguien ahí? —preguntó el abuelo.
+
+Nadie respondió.
+
+Martina observó una pequeña ventana y notó algo extraño.
+
+Una rama grande había caído sobre unos cables detrás del edificio.
+
+—Tal vez ahí está el problema —dijo.
+
+Su abuelo revisó con cuidado y confirmó que uno de los cables se había soltado.
+
+Llamaron al encargado del faro, quien llegó poco después con sus herramientas.
+
+Tras varios minutos de trabajo, la luz volvió a encenderse.
+
+Desde lo alto de la colina, Martina vio cómo el haz de luz cruzaba nuevamente el mar.
+
+—No resolvimos un gran misterio —dijo su abuelo sonriendo—, pero observaste algo que los demás no habían visto.
+
+Martina regresó a casa orgullosa.
+
+Aquella noche aprendió que muchas veces resolver un problema comienza simplemente observando con atención.
+''',
+    ),
+
+    Story(
+      id: 'la-bicicleta-roja',
+      title: 'La bicicleta roja',
+      category: 'Cuento',
+      difficulty: 'Medio',
+      readingTime: '6 min',
+      description:
+          'Tomás quiere aprender a andar en bicicleta, pero descubre que mejorar requiere paciencia y práctica.',
+      content: '''
+Para su cumpleaños, Tomás recibió una bicicleta roja.
+
+Era exactamente la bicicleta que había imaginado durante meses.
+
+Al día siguiente salió al parque con su hermana mayor, Valentina.
+
+—¿Me enseñas a andar sin las ruedas pequeñas? —preguntó.
+
+Valentina aceptó.
+
+Al principio, Tomás avanzó unos pocos metros antes de perder el equilibrio.
+
+Cayó sobre el pasto.
+
+—Esto es mucho más difícil de lo que pensaba —dijo.
+
+Volvió a intentarlo.
+
+Esta vez llegó un poco más lejos, pero nuevamente cayó.
+
+Después de varios intentos comenzó a molestarse.
+
+—Nunca voy a aprender.
+
+Valentina se sentó junto a él.
+
+—Cuando yo aprendí también me caí muchas veces. Lo importante es fijarte en lo que puedes mejorar en cada intento.
+
+Tomás respiró profundo y volvió a subir a la bicicleta.
+
+Esta vez trató de mirar hacia adelante en vez de mirar sus pies.
+
+Avanzó más lejos.
+
+Luego practicó cómo girar.
+
+Después aprendió a frenar con mayor suavidad.
+
+Al final de la tarde logró recorrer todo el camino del parque sin caer.
+
+—¡Lo hice! —gritó.
+
+Valentina sonrió.
+
+Tomás entendió que no había aprendido de golpe.
+
+Había mejorado un poco en cada intento.
+
+Desde ese día, cada vez que algo le parecía difícil, recordaba su bicicleta roja.
+''',
+    ),
+
+    Story(
+      id: 'por-que-cambian-de-color-las-hojas',
+      title: '¿Por qué cambian de color las hojas?',
+      category: 'Texto informativo',
+      difficulty: 'Medio',
+      readingTime: '5 min',
+      description:
+          'Descubre por qué algunas hojas pasan del verde al amarillo, naranja o rojo durante el otoño.',
+      content: '''
+Durante gran parte del año, muchas hojas de los árboles son verdes.
+
+Ese color se debe principalmente a una sustancia llamada clorofila.
+
+La clorofila ayuda a las plantas a aprovechar la luz del Sol para producir alimento.
+
+Cuando llega el otoño, los días comienzan a ser más cortos y las temperaturas disminuyen.
+
+Los árboles reciben menos luz.
+
+Como respuesta, algunos dejan de producir tanta clorofila.
+
+A medida que la cantidad de clorofila disminuye, el color verde comienza a desaparecer.
+
+Entonces podemos observar otros pigmentos que ya estaban presentes en las hojas.
+
+Algunos producen tonos amarillos y anaranjados.
+
+En ciertos árboles también aparecen pigmentos de color rojo.
+
+Por eso durante el otoño podemos encontrar árboles con hojas de muchos colores diferentes.
+
+Finalmente, muchos árboles dejan caer sus hojas.
+
+Esto les ayuda a ahorrar agua y energía durante los meses fríos.
+
+Cuando vuelve la primavera y aumentan las horas de luz, comienzan a crecer hojas nuevas.
+
+Así, el cambio de color de las hojas forma parte de la manera en que algunos árboles se adaptan a las estaciones del año.
+''',
+    ),
   ];
 }

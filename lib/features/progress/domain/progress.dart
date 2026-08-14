@@ -24,16 +24,12 @@ class UserProgress {
     String? lastReadingDate,
   }) {
     return UserProgress(
-      storiesCompleted:
-          storiesCompleted ?? this.storiesCompleted,
+      storiesCompleted: storiesCompleted ?? this.storiesCompleted,
       stars: stars ?? this.stars,
-      adventuresCompleted:
-          adventuresCompleted ?? this.adventuresCompleted,
+      adventuresCompleted: adventuresCompleted ?? this.adventuresCompleted,
       streak: streak ?? this.streak,
-      completedStoryIds:
-          completedStoryIds ?? this.completedStoryIds,
-      lastReadingDate:
-          lastReadingDate ?? this.lastReadingDate,
+      completedStoryIds: completedStoryIds ?? this.completedStoryIds,
+      lastReadingDate: lastReadingDate ?? this.lastReadingDate,
     );
   }
 }

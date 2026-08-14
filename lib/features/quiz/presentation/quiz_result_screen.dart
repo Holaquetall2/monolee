@@ -18,12 +18,9 @@ class QuizResultScreen extends StatelessWidget {
   bool get _isLastStory {
     final stories = StoryRepository.stories;
 
-    final currentIndex = stories.indexWhere(
-      (story) => story.id == storyId,
-    );
+    final currentIndex = stories.indexWhere((story) => story.id == storyId);
 
-    return currentIndex == -1 ||
-        currentIndex >= stories.length - 1;
+    return currentIndex == -1 || currentIndex >= stories.length - 1;
   }
 
   String get message {
@@ -65,16 +62,10 @@ class QuizResultScreen extends StatelessWidget {
   void _openNextStory(BuildContext context) {
     final stories = StoryRepository.stories;
 
-    final currentIndex = stories.indexWhere(
-      (story) => story.id == storyId,
-    );
+    final currentIndex = stories.indexWhere((story) => story.id == storyId);
 
-    if (currentIndex == -1 ||
-        currentIndex >= stories.length - 1) {
-      Navigator.popUntil(
-        context,
-        (route) => route.isFirst,
-      );
+    if (currentIndex == -1 || currentIndex >= stories.length - 1) {
+      Navigator.popUntil(context, (route) => route.isFirst);
       return;
     }
 
@@ -83,9 +74,7 @@ class QuizResultScreen extends StatelessWidget {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) => StoryReaderScreen(
-          story: nextStory,
-        ),
+        builder: (context) => StoryReaderScreen(story: nextStory),
       ),
     );
   }
@@ -105,12 +94,7 @@ class QuizResultScreen extends StatelessWidget {
           padding: const EdgeInsets.all(24),
           child: Column(
             children: [
-              const Text(
-                '🏆',
-                style: TextStyle(
-                  fontSize: 80,
-                ),
-              ),
+              const Text('🏆', style: TextStyle(fontSize: 80)),
 
               const SizedBox(height: 12),
 
@@ -161,10 +145,9 @@ class QuizResultScreen extends StatelessWidget {
                 ),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(24),
-                  color: Theme.of(context)
-                      .colorScheme
-                      .primary
-                      .withValues(alpha: 0.08),
+                  color: Theme.of(
+                    context,
+                  ).colorScheme.primary.withValues(alpha: 0.08),
                 ),
                 child: Column(
                   children: [
@@ -173,9 +156,7 @@ class QuizResultScreen extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 52,
                         fontWeight: FontWeight.bold,
-                        color: Theme.of(context)
-                            .colorScheme
-                            .primary,
+                        color: Theme.of(context).colorScheme.primary,
                       ),
                     ),
                     const SizedBox(height: 8),
@@ -198,10 +179,7 @@ class QuizResultScreen extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: Text(
                   '¿Cómo te fue?',
-                  style: TextStyle(
-                    fontSize: 21,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
                 ),
               ),
 
@@ -231,10 +209,7 @@ class QuizResultScreen extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: Text(
                   'Revisa tus respuestas',
-                  style: TextStyle(
-                    fontSize: 21,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
                 ),
               ),
 
@@ -270,9 +245,7 @@ class QuizResultScreen extends StatelessWidget {
                             answer.isCorrect
                                 ? Icons.check_circle_rounded
                                 : Icons.cancel_rounded,
-                            color: answer.isCorrect
-                                ? Colors.green
-                                : Colors.red,
+                            color: answer.isCorrect ? Colors.green : Colors.red,
                           ),
 
                           const SizedBox(width: 10),
@@ -288,9 +261,7 @@ class QuizResultScreen extends StatelessWidget {
                           ),
 
                           Text(
-                            answer.isCorrect
-                                ? 'Correcta'
-                                : 'Incorrecta',
+                            answer.isCorrect ? 'Correcta' : 'Incorrecta',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: answer.isCorrect
@@ -371,10 +342,7 @@ class QuizResultScreen extends StatelessWidget {
                         ),
                         child: Text(
                           question.explanation,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            height: 1.4,
-                          ),
+                          style: const TextStyle(fontSize: 14, height: 1.4),
                         ),
                       ),
                     ],
@@ -387,15 +355,9 @@ class QuizResultScreen extends StatelessWidget {
                 height: 56,
                 child: ElevatedButton.icon(
                   onPressed: () => _openNextStory(context),
-                  icon: Icon(
-                    _isLastStory
-                        ? Icons.flag
-                        : Icons.arrow_forward,
-                  ),
+                  icon: Icon(_isLastStory ? Icons.flag : Icons.arrow_forward),
                   label: Text(
-                    _isLastStory
-                        ? 'Terminar aventura'
-                        : 'Siguiente aventura',
+                    _isLastStory ? 'Terminar aventura' : 'Siguiente aventura',
                     style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
@@ -411,15 +373,10 @@ class QuizResultScreen extends StatelessWidget {
                 height: 52,
                 child: OutlinedButton.icon(
                   onPressed: () {
-                    Navigator.popUntil(
-                      context,
-                      (route) => route.isFirst,
-                    );
+                    Navigator.popUntil(context, (route) => route.isFirst);
                   },
                   icon: const Icon(Icons.home),
-                  label: const Text(
-                    'Volver al inicio',
-                  ),
+                  label: const Text('Volver al inicio'),
                 ),
               ),
             ],
@@ -435,8 +392,7 @@ class QuizResultScreen extends StatelessWidget {
     String title,
   ) {
     final answers = result.answers.where(
-      (answer) =>
-          answer.question.comprehensionType == type,
+      (answer) => answer.question.comprehensionType == type,
     );
 
     final total = answers.length;
@@ -445,9 +401,7 @@ class QuizResultScreen extends StatelessWidget {
       return const SizedBox.shrink();
     }
 
-    final correct = answers.where(
-      (answer) => answer.isCorrect,
-    ).length;
+    final correct = answers.where((answer) => answer.isCorrect).length;
 
     final percentage = (correct / total * 100).round();
 
@@ -467,16 +421,13 @@ class QuizResultScreen extends StatelessWidget {
       padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(18),
-        border: Border.all(
-          color: Colors.grey.shade300,
-        ),
+        border: Border.all(color: Colors.grey.shade300),
       ),
       child: Row(
         children: [
           Expanded(
             child: Column(
-              crossAxisAlignment:
-                  CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   title,
@@ -489,9 +440,7 @@ class QuizResultScreen extends StatelessWidget {
                 Text(
                   '$status • $correct de $total',
                   style: TextStyle(
-                    color: Theme.of(context)
-                        .colorScheme
-                        .primary,
+                    color: Theme.of(context).colorScheme.primary,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -500,10 +449,7 @@ class QuizResultScreen extends StatelessWidget {
           ),
           Text(
             '$percentage%',
-            style: const TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-            ),
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
         ],
       ),

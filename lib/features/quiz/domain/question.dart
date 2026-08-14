@@ -1,8 +1,4 @@
-enum QuestionType {
-  multipleChoice,
-  trueFalse,
-  open,
-}
+enum QuestionType { multipleChoice, trueFalse, open }
 
 enum ComprehensionType {
   literal,
