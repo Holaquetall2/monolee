@@ -94,7 +94,11 @@ class QuizResultScreen extends StatelessWidget {
           padding: const EdgeInsets.all(24),
           child: Column(
             children: [
-              const Text('🏆', style: TextStyle(fontSize: 80)),
+              Image.asset(
+                'assets/images/mascot/monolee_celebration.png',
+                height: 170,
+                fit: BoxFit.contain,
+              ),
 
               const SizedBox(height: 12),
 

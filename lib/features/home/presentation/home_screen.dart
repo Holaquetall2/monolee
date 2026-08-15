@@ -5,6 +5,7 @@ import '../../progress/data/progress_repository.dart';
 import '../../progress/domain/progress.dart';
 import '../../progress/presentation/progress_screen.dart';
 import '../../stories/data/story_repository.dart';
+import '../../stories/domain/story.dart';
 import '../../stories/presentation/story_list_screen.dart';
 import '../../stories/presentation/story_reader_screen.dart';
 
@@ -40,24 +41,28 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  Future<void> _startAdventure() async {
+  Story? _nextStory() {
     final stories = StoryRepository.stories;
 
     if (stories.isEmpty) {
-      return;
+      return null;
     }
 
-    final progress = await _progressRepository.loadProgress();
-
     final pendingStories = stories.where(
-      (story) => !progress.completedStoryIds.contains(story.id),
+      (story) => !_progress.completedStoryIds.contains(story.id),
     );
 
-    final story = pendingStories.isNotEmpty
-        ? pendingStories.first
-        : stories.first;
+    if (pendingStories.isNotEmpty) {
+      return pendingStories.first;
+    }
 
-    if (!mounted) {
+    return stories.first;
+  }
+
+  Future<void> _startAdventure() async {
+    final story = _nextStory();
+
+    if (story == null) {
       return;
     }
 
@@ -89,25 +94,40 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final totalStories = StoryRepository.stories.length;
+    final stories = StoryRepository.stories;
+    final totalStories = stories.length;
+    final nextStory = _nextStory();
+
+    final progressValue = totalStories == 0
+        ? 0.0
+        : (_progress.storiesCompleted / totalStories).clamp(0.0, 1.0);
+
+    final progressPercentage = (progressValue * 100).round();
+
+    final allCompleted =
+        totalStories > 0 && _progress.storiesCompleted >= totalStories;
 
     final adventureButtonText = _progress.storiesCompleted == 0
         ? 'Comenzar aventura'
-        : _progress.storiesCompleted < totalStories
-        ? 'Continuar aventura'
-        : 'Volver a jugar';
+        : allCompleted
+        ? 'Volver a jugar'
+        : 'Continuar aventura';
 
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.fromLTRB(24, 24, 24, 30),
           child: Column(
             children: [
-              const Spacer(),
+              const SizedBox(height: 18),
 
-              const Text('🐵', style: TextStyle(fontSize: 90)),
+              Image.asset(
+                'assets/images/mascot/monolee_home.png',
+                height: 190,
+                fit: BoxFit.contain,
+              ),
 
-              const SizedBox(height: 12),
+              const SizedBox(height: 16),
 
               const Text(
                 'MonoLee',
@@ -118,7 +138,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
 
-              const SizedBox(height: 8),
+              const SizedBox(height: 7),
 
               const Text(
                 'Cada historia es una aventura',
@@ -126,7 +146,79 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: TextStyle(fontSize: 18, color: AppColors.text),
               ),
 
-              const SizedBox(height: 40),
+              const SizedBox(height: 30),
+
+              if (!_loading && nextStory != null)
+                Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.all(18),
+                  decoration: BoxDecoration(
+                    color: Theme.of(
+                      context,
+                    ).colorScheme.primary.withValues(alpha: 0.08),
+                    borderRadius: BorderRadius.circular(22),
+                  ),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 72,
+                        height: 72,
+                        padding: const EdgeInsets.all(6),
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).colorScheme.surface,
+                          borderRadius: BorderRadius.circular(18),
+                        ),
+                        child: Image.asset(
+                          'assets/images/mascot/monolee_map.png',
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+
+                      const SizedBox(width: 14),
+
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              allCompleted
+                                  ? '¿Otra aventura?'
+                                  : 'Tu próxima aventura',
+                              style: TextStyle(
+                                fontSize: 13,
+                                fontWeight: FontWeight.bold,
+                                color: Theme.of(context).colorScheme.primary,
+                              ),
+                            ),
+
+                            const SizedBox(height: 4),
+
+                            Text(
+                              nextStory.title,
+                              style: const TextStyle(
+                                fontSize: 17,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+
+                            const SizedBox(height: 3),
+
+                            Text(
+                              '${nextStory.category} • '
+                              '${nextStory.readingTime}',
+                              style: TextStyle(
+                                fontSize: 13,
+                                color: Colors.grey.shade700,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+              const SizedBox(height: 18),
 
               SizedBox(
                 width: double.infinity,
@@ -152,11 +244,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
 
-              const SizedBox(height: 20),
+              const SizedBox(height: 14),
 
               SizedBox(
                 width: double.infinity,
-                height: 58,
+                height: 56,
                 child: OutlinedButton.icon(
                   onPressed: _openStories,
                   icon: const Icon(Icons.menu_book, size: 24),
@@ -174,61 +266,104 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
 
-              const Spacer(),
+              const SizedBox(height: 24),
 
               InkWell(
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(22),
                 onTap: _openProgress,
                 child: Container(
                   width: double.infinity,
-                  padding: const EdgeInsets.all(18),
+                  padding: const EdgeInsets.all(19),
                   decoration: BoxDecoration(
-                    color: AppColors.secondary.withValues(alpha: 0.25),
-                    borderRadius: BorderRadius.circular(20),
+                    color: AppColors.secondary.withValues(alpha: 0.22),
+                    borderRadius: BorderRadius.circular(22),
                   ),
-                  child: Row(
+                  child: Column(
                     children: [
-                      const Icon(
-                        Icons.star_rounded,
-                        size: 36,
-                        color: AppColors.secondary,
-                      ),
+                      Row(
+                        children: [
+                          const Icon(
+                            Icons.star_rounded,
+                            size: 36,
+                            color: AppColors.secondary,
+                          ),
 
-                      const SizedBox(width: 14),
+                          const SizedBox(width: 13),
 
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text(
+                          const Expanded(
+                            child: Text(
                               'Tu aventura',
                               style: TextStyle(
+                                fontSize: 17,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+
+                          if (!_loading)
+                            Text(
+                              '$progressPercentage%',
+                              style: const TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
 
-                            const SizedBox(height: 4),
+                          const SizedBox(width: 4),
 
-                            if (_loading)
-                              const Text('Cargando progreso...')
-                            else
-                              Text(
-                                '${_progress.storiesCompleted} de $totalStories '
-                                'historias • ⭐ ${_progress.stars}',
-                                style: const TextStyle(fontSize: 14),
-                              ),
-                          ],
-                        ),
+                          const Icon(Icons.chevron_right),
+                        ],
                       ),
 
-                      const Icon(Icons.chevron_right),
+                      const SizedBox(height: 12),
+
+                      if (_loading)
+                        const LinearProgressIndicator()
+                      else ...[
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: LinearProgressIndicator(
+                            value: progressValue,
+                            minHeight: 9,
+                          ),
+                        ),
+
+                        const SizedBox(height: 10),
+
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Text(
+                                '${_progress.storiesCompleted} de '
+                                '$totalStories historias',
+                                style: const TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                            Text(
+                              '⭐ ${_progress.stars}',
+                              style: const TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            Text(
+                              '🔥 ${_progress.streak}',
+                              style: const TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ],
                   ),
                 ),
               ),
-
-              const SizedBox(height: 20),
             ],
           ),
         ),

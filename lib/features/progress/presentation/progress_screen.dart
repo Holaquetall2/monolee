@@ -58,16 +58,10 @@ class _ProgressScreenState extends State<ProgressScreen> {
           padding: const EdgeInsets.fromLTRB(20, 16, 20, 30),
           child: Column(
             children: [
-              Container(
-                width: 110,
-                height: 110,
-                decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.primaryContainer,
-                  shape: BoxShape.circle,
-                ),
-                child: const Center(
-                  child: Text('🐵', style: TextStyle(fontSize: 62)),
-                ),
+              Image.asset(
+                'assets/images/mascot/monolee_adventure.png',
+                height: 180,
+                fit: BoxFit.contain,
               ),
 
               const SizedBox(height: 18),

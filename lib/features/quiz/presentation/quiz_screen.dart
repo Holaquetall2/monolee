@@ -23,6 +23,7 @@ class _QuizScreenState extends State<QuizScreen> {
 
   int currentQuestion = 0;
   String? selectedAnswer;
+  bool answerChecked = false;
 
   @override
   void initState() {
@@ -32,17 +33,22 @@ class _QuizScreenState extends State<QuizScreen> {
   }
 
   void selectAnswer(String answer) {
+    if (answerChecked) {
+      return;
+    }
+
     setState(() {
       selectedAnswer = answer;
     });
   }
 
-  void nextQuestion() {
-    if (selectedAnswer == null) {
+  void checkAnswer() {
+    if (selectedAnswer == null || answerChecked) {
       return;
     }
 
     final question = questions[currentQuestion];
+
     final isCorrect = selectedAnswer == question.correctAnswer;
 
     answers.add(
@@ -52,6 +58,16 @@ class _QuizScreenState extends State<QuizScreen> {
         isCorrect: isCorrect,
       ),
     );
+
+    setState(() {
+      answerChecked = true;
+    });
+  }
+
+  void continueQuiz() {
+    if (!answerChecked) {
+      return;
+    }
 
     if (currentQuestion == questions.length - 1) {
       final result = QuizResult(answers: List.unmodifiable(answers));
@@ -63,6 +79,7 @@ class _QuizScreenState extends State<QuizScreen> {
     setState(() {
       currentQuestion++;
       selectedAnswer = null;
+      answerChecked = false;
     });
   }
 
@@ -85,6 +102,92 @@ class _QuizScreenState extends State<QuizScreen> {
     );
   }
 
+  Color _optionBorderColor(
+    BuildContext context,
+    String option,
+    Question question,
+  ) {
+    if (!answerChecked) {
+      return selectedAnswer == option
+          ? Theme.of(context).colorScheme.primary
+          : Colors.grey.shade300;
+    }
+
+    if (option == question.correctAnswer) {
+      return Colors.green;
+    }
+
+    if (option == selectedAnswer && option != question.correctAnswer) {
+      return Colors.red;
+    }
+
+    return Colors.grey.shade300;
+  }
+
+  Color? _optionBackgroundColor(
+    BuildContext context,
+    String option,
+    Question question,
+  ) {
+    if (!answerChecked) {
+      if (selectedAnswer == option) {
+        return Theme.of(context).colorScheme.primary.withValues(alpha: 0.10);
+      }
+
+      return null;
+    }
+
+    if (option == question.correctAnswer) {
+      return Colors.green.withValues(alpha: 0.10);
+    }
+
+    if (option == selectedAnswer && option != question.correctAnswer) {
+      return Colors.red.withValues(alpha: 0.10);
+    }
+
+    return null;
+  }
+
+  IconData? _optionIcon(String option, Question question) {
+    if (!answerChecked) {
+      return selectedAnswer == option
+          ? Icons.radio_button_checked
+          : Icons.radio_button_unchecked;
+    }
+
+    if (option == question.correctAnswer) {
+      return Icons.check_circle_rounded;
+    }
+
+    if (option == selectedAnswer && option != question.correctAnswer) {
+      return Icons.cancel_rounded;
+    }
+
+    return Icons.radio_button_unchecked;
+  }
+
+  Color _optionIconColor(
+    BuildContext context,
+    String option,
+    Question question,
+  ) {
+    if (!answerChecked) {
+      return selectedAnswer == option
+          ? Theme.of(context).colorScheme.primary
+          : Colors.grey;
+    }
+
+    if (option == question.correctAnswer) {
+      return Colors.green;
+    }
+
+    if (option == selectedAnswer && option != question.correctAnswer) {
+      return Colors.red;
+    }
+
+    return Colors.grey.shade400;
+  }
+
   @override
   Widget build(BuildContext context) {
     if (questions.isEmpty) {
@@ -94,84 +197,221 @@ class _QuizScreenState extends State<QuizScreen> {
     }
 
     final question = questions[currentQuestion];
+    final isCorrect = selectedAnswer == question.correctAnswer;
 
     return Scaffold(
       appBar: AppBar(
         title: Text('Pregunta ${currentQuestion + 1} de ${questions.length}'),
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(5),
+          child: LinearProgressIndicator(
+            minHeight: 5,
+            value: (currentQuestion + 1) / questions.length,
+          ),
+        ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(24),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            LinearProgressIndicator(
-              value: (currentQuestion + 1) / questions.length,
-            ),
-            const SizedBox(height: 32),
-            Text(
-              question.text,
-              style: const TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                height: 1.3,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(20, 22, 20, 18),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Center(
+                child: Image.asset(
+                  'assets/images/mascot/monolee_thinking.png',
+                  height: 115,
+                  fit: BoxFit.contain,
+                ),
               ),
-            ),
-            const SizedBox(height: 28),
-            Expanded(
-              child: ListView(
-                children: question.options.map((option) {
-                  final isSelected = selectedAnswer == option;
 
-                  return Padding(
-                    padding: const EdgeInsets.only(bottom: 12),
-                    child: InkWell(
-                      borderRadius: BorderRadius.circular(16),
-                      onTap: () => selectAnswer(option),
-                      child: Container(
+              const SizedBox(height: 12),
+
+              Text(
+                _questionTypeLabel(question.comprehensionType),
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                  color: Theme.of(context).colorScheme.primary,
+                ),
+              ),
+
+              const SizedBox(height: 10),
+
+              Text(
+                question.text,
+                style: const TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  height: 1.3,
+                ),
+              ),
+
+              const SizedBox(height: 24),
+
+              Expanded(
+                child: ListView(
+                  children: [
+                    ...question.options.map((option) {
+                      final isSelected = selectedAnswer == option;
+
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: 12),
+                        child: InkWell(
+                          borderRadius: BorderRadius.circular(18),
+                          onTap: answerChecked
+                              ? null
+                              : () => selectAnswer(option),
+                          child: AnimatedContainer(
+                            duration: const Duration(milliseconds: 180),
+                            padding: const EdgeInsets.all(17),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(18),
+                              border: Border.all(
+                                color: _optionBorderColor(
+                                  context,
+                                  option,
+                                  question,
+                                ),
+                                width:
+                                    isSelected ||
+                                        (answerChecked &&
+                                            option == question.correctAnswer)
+                                    ? 2
+                                    : 1,
+                              ),
+                              color: _optionBackgroundColor(
+                                context,
+                                option,
+                                question,
+                              ),
+                            ),
+                            child: Row(
+                              children: [
+                                Icon(
+                                  _optionIcon(option, question),
+                                  color: _optionIconColor(
+                                    context,
+                                    option,
+                                    question,
+                                  ),
+                                ),
+
+                                const SizedBox(width: 12),
+
+                                Expanded(
+                                  child: Text(
+                                    option,
+                                    style: const TextStyle(
+                                      fontSize: 17,
+                                      height: 1.35,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      );
+                    }),
+
+                    if (answerChecked) ...[
+                      const SizedBox(height: 8),
+
+                      Container(
+                        width: double.infinity,
                         padding: const EdgeInsets.all(18),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(16),
-                          border: Border.all(
-                            color: isSelected
-                                ? Theme.of(context).colorScheme.primary
-                                : Colors.grey.shade300,
-                            width: isSelected ? 2 : 1,
-                          ),
-                          color: isSelected
-                              ? Theme.of(
-                                  context,
-                                ).colorScheme.primary.withValues(alpha: 0.1)
-                              : null,
+                          color: isCorrect
+                              ? Colors.green.withValues(alpha: 0.10)
+                              : Colors.orange.withValues(alpha: 0.10),
+                          borderRadius: BorderRadius.circular(20),
                         ),
-                        child: Text(
-                          option,
-                          style: const TextStyle(fontSize: 17),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                Icon(
+                                  isCorrect
+                                      ? Icons.celebration_rounded
+                                      : Icons.lightbulb_rounded,
+                                  color: isCorrect
+                                      ? Colors.green
+                                      : Colors.orange,
+                                ),
+                                const SizedBox(width: 9),
+                                Expanded(
+                                  child: Text(
+                                    isCorrect ? '¡Muy bien!' : 'Veamos por qué',
+                                    style: const TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+
+                            const SizedBox(height: 10),
+
+                            Text(
+                              question.explanation,
+                              style: const TextStyle(
+                                fontSize: 15,
+                                height: 1.45,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                    ),
-                  );
-                }).toList(),
+                    ],
+                  ],
+                ),
               ),
-            ),
-            SizedBox(
-              width: double.infinity,
-              height: 56,
-              child: ElevatedButton(
-                onPressed: selectedAnswer == null ? null : nextQuestion,
-                child: Text(
-                  currentQuestion == questions.length - 1
-                      ? 'Terminar'
-                      : 'Siguiente',
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
+
+              const SizedBox(height: 12),
+
+              SizedBox(
+                width: double.infinity,
+                height: 58,
+                child: ElevatedButton(
+                  onPressed: selectedAnswer == null
+                      ? null
+                      : answerChecked
+                      ? continueQuiz
+                      : checkAnswer,
+                  child: Text(
+                    !answerChecked
+                        ? 'Comprobar respuesta'
+                        : currentQuestion == questions.length - 1
+                        ? 'Ver resultado'
+                        : 'Siguiente pregunta',
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
+  }
+
+  String _questionTypeLabel(ComprehensionType type) {
+    switch (type) {
+      case ComprehensionType.literal:
+        return '🔎 Comprensión literal';
+      case ComprehensionType.inferential:
+        return '🧠 Comprensión inferencial';
+      case ComprehensionType.mainIdea:
+        return '💡 Idea principal';
+      case ComprehensionType.vocabulary:
+        return '📖 Vocabulario';
+      case ComprehensionType.reflection:
+        return '💭 Reflexión';
+    }
   }
 }
