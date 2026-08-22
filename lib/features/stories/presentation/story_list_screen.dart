@@ -72,8 +72,12 @@ class _StoryListScreenState extends State<StoryListScreen> {
         return Colors.green;
       case 'medio':
         return Colors.orange;
-      case 'difícil':
+      case 'medio-alto':
+        return Colors.deepOrange;
+      case 'alto':
         return Colors.red;
+      case 'desafío':
+        return Colors.purple;
       default:
         return Colors.blueGrey;
     }

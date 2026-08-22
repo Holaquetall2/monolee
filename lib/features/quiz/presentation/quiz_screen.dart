@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import '../../progress/data/progress_repository.dart';
@@ -29,7 +31,32 @@ class _QuizScreenState extends State<QuizScreen> {
   void initState() {
     super.initState();
 
-    questions = QuizRepository.questionsByStory[widget.storyId] ?? [];
+    questions = _prepareQuestions();
+  }
+
+  List<Question> _prepareQuestions() {
+    final originalQuestions =
+        QuizRepository.questionsByStory[widget.storyId] ?? [];
+
+    final random = Random();
+
+    final preparedQuestions = originalQuestions.map((question) {
+      final shuffledOptions = [...question.options]..shuffle(random);
+
+      return Question(
+        id: question.id,
+        text: question.text,
+        type: question.type,
+        comprehensionType: question.comprehensionType,
+        options: shuffledOptions,
+        correctAnswer: question.correctAnswer,
+        explanation: question.explanation,
+      );
+    }).toList();
+
+    preparedQuestions.shuffle(random);
+
+    return preparedQuestions;
   }
 
   void selectAnswer(String answer) {

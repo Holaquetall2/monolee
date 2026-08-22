@@ -888,5 +888,1052 @@ class QuizRepository {
             'El texto explica la relación entre la luz, la clorofila, los pigmentos y la adaptación de algunos árboles a las estaciones.',
       ),
     ],
+    'el-reloj-de-la-estacion': [
+      Question(
+        id: 'reloj_q1',
+        text:
+            '¿Qué hizo que Emilia pensara inicialmente que el reloj estaba averiado?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.literal,
+        options: [
+          'Marcaba la misma hora durante varios días',
+          'Las agujas habían desaparecido',
+          'El encargado dijo que el mecanismo estaba roto',
+          'El reloj avanzaba demasiado rápido',
+        ],
+        correctAnswer: 'Marcaba la misma hora durante varios días',
+        explanation:
+            'Emilia observó que desde la entrada parecía marcar las cuatro y diecisiete durante varios días seguidos.',
+      ),
+      Question(
+        id: 'reloj_q2',
+        text:
+            '¿Qué información hizo que Emilia tuviera que buscar otra explicación?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.inferential,
+        options: [
+          'El encargado aseguró que el mecanismo funcionaba',
+          'El hombre mayor llevaba una libreta',
+          'La estación tenía pocos pasajeros',
+          'El reloj era muy antiguo',
+        ],
+        correctAnswer: 'El encargado aseguró que el mecanismo funcionaba',
+        explanation:
+            'Si el mecanismo había sido revisado y funcionaba, la aparente detención del reloj debía tener otra causa.',
+      ),
+      Question(
+        id: 'reloj_q3',
+        text:
+            '¿Por qué el reloj parecía detenido solamente desde ciertos lugares?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.inferential,
+        options: [
+          'Una sombra cubría parte de las agujas desde ciertos ángulos',
+          'Las agujas solo se movían cuando nadie las observaba',
+          'El vidrio reflejaba otro reloj',
+          'El mecanismo se detenía al caer la tarde',
+        ],
+        correctAnswer:
+            'Una sombra cubría parte de las agujas desde ciertos ángulos',
+        explanation:
+            'La estructura metálica proyectaba una sombra que ocultaba parte del movimiento de las agujas desde la entrada.',
+      ),
+      Question(
+        id: 'reloj_q4',
+        text: '¿Qué estaba investigando realmente el hombre mayor?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.literal,
+        options: [
+          'Cómo cambiaba la posición de la sombra',
+          'Por qué se atrasaban los trenes',
+          'Quién había construido el reloj',
+          'Cuántas personas miraban el reloj',
+        ],
+        correctAnswer: 'Cómo cambiaba la posición de la sombra',
+        explanation:
+            'El hombre registraba cada día la posición de la sombra para comparar cómo variaba durante el mes.',
+      ),
+      Question(
+        id: 'reloj_q5',
+        text:
+            'En la historia, ¿qué significa mejor la idea de que algo puede depender del "punto desde donde se observa"?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.vocabulary,
+        options: [
+          'La apariencia de una situación puede cambiar según la perspectiva',
+          'Los relojes deben observarse siempre desde cerca',
+          'Las sombras son más importantes que los objetos',
+          'Solo existe una forma correcta de mirar algo',
+        ],
+        correctAnswer:
+            'La apariencia de una situación puede cambiar según la perspectiva',
+        explanation:
+            'El reloj parecía detenido desde un lugar específico, pero al cambiar de posición Emilia pudo ver lo que realmente ocurría.',
+      ),
+      Question(
+        id: 'reloj_q6',
+        text: '¿Cuál resume mejor el aprendizaje de Emilia?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.mainIdea,
+        options: [
+          'No aceptar una primera impresión sin considerar otras explicaciones',
+          'Los objetos antiguos siempre funcionan de maneras extrañas',
+          'Es mejor confiar en desconocidos que en encargados',
+          'Las sombras hacen imposible observar correctamente',
+        ],
+        correctAnswer:
+            'No aceptar una primera impresión sin considerar otras explicaciones',
+        explanation:
+            'La experiencia del reloj enseñó a Emilia a cuestionar aquello que parecía evidente y buscar otras perspectivas.',
+      ),
+    ],
+    'la-expedicion-al-bosque-nublado': [
+      Question(
+        id: 'bosque_q1',
+        text: '¿Por qué Bruno quería continuar en línea recta?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.inferential,
+        options: [
+          'Supuso que el sendero debía seguir en la misma dirección',
+          'La brújula indicaba avanzar hacia el sur',
+          'Había visto al resto del grupo delante',
+          'El mapa mostraba un camino completamente recto',
+        ],
+        correctAnswer:
+            'Supuso que el sendero debía seguir en la misma dirección',
+        explanation:
+            'Bruno se basó en una suposición sobre cómo continuaba el sendero, sin comprobarla con el mapa.',
+      ),
+      Question(
+        id: 'bosque_q2',
+        text:
+            '¿Qué dos elementos ayudaron a confirmar que habían llegado al arroyo correcto?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.literal,
+        options: [
+          'El mapa y una marca amarilla sobre una roca',
+          'La brújula y las voces del grupo',
+          'Las tablas rotas y la posición del Sol',
+          'La neblina y las piedras del arroyo',
+        ],
+        correctAnswer: 'El mapa y una marca amarilla sobre una roca',
+        explanation:
+            'La ubicación coincidía con el mapa y Elisa encontró una marca amarilla casi borrada.',
+      ),
+      Question(
+        id: 'bosque_q3',
+        text: '¿Por qué decidieron no cruzar donde estaba el puente destruido?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.inferential,
+        options: [
+          'Consideraron que no era seguro y buscaron otra alternativa',
+          'Pensaron que estaban en el arroyo equivocado',
+          'El mapa prohibía cruzar cualquier arroyo',
+          'La profesora les había dicho que regresaran',
+        ],
+        correctAnswer:
+            'Consideraron que no era seguro y buscaron otra alternativa',
+        explanation:
+            'En vez de asumir un riesgo innecesario, siguieron la orilla hasta encontrar un punto más seguro.',
+      ),
+      Question(
+        id: 'bosque_q4',
+        text: '¿Qué cambio se observa en Bruno al final de la historia?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.inferential,
+        options: [
+          'Reconoce que estar muy seguro no garantiza tener razón',
+          'Decide que nunca volverá a usar un mapa',
+          'Aprende que siempre debe seguir a Elisa',
+          'Concluye que la brújula era inútil',
+        ],
+        correctAnswer: 'Reconoce que estar muy seguro no garantiza tener razón',
+        explanation:
+            'Bruno admite que al principio estaba demasiado seguro, después de comprobar que su primera idea podía haberlos desorientado.',
+      ),
+      Question(
+        id: 'bosque_q5',
+        text:
+            '¿Qué evidencia respalda mejor la idea de que el grupo tomó decisiones basadas en pruebas?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.reflection,
+        options: [
+          'Consultaron mapa, brújula y señales antes de decidir por dónde continuar',
+          'Caminaron durante más de una hora',
+          'La profesora les entregó una libreta',
+          'Escucharon agua antes de llegar al arroyo',
+        ],
+        correctAnswer:
+            'Consultaron mapa, brújula y señales antes de decidir por dónde continuar',
+        explanation:
+            'La combinación de distintas evidencias les permitió comprobar sus decisiones en vez de basarse solo en suposiciones.',
+      ),
+      Question(
+        id: 'bosque_q6',
+        text:
+            'En el contexto de la historia, ¿qué significa mejor "comprobar" una información?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.vocabulary,
+        options: [
+          'Buscar evidencia que permita saber si es correcta',
+          'Recordarla durante mucho tiempo',
+          'Compartirla con otra persona',
+          'Aceptar que probablemente es cierta',
+        ],
+        correctAnswer: 'Buscar evidencia que permita saber si es correcta',
+        explanation:
+            'Los personajes no aceptaron sus ideas sin más; buscaron señales que confirmaran si coincidían con la realidad.',
+      ),
+      Question(
+        id: 'bosque_q7',
+        text: '¿Cuál es la idea central de la expedición?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.mainIdea,
+        options: [
+          'Tomar buenas decisiones requiere distinguir entre suposiciones y evidencias',
+          'Las excursiones con neblina deberían evitarse',
+          'Los mapas son más útiles que cualquier otra herramienta',
+          'Las personas seguras suelen equivocarse',
+        ],
+        correctAnswer:
+            'Tomar buenas decisiones requiere distinguir entre suposiciones y evidencias',
+        explanation:
+            'La dificultad principal fue evaluar qué información podían confiar y qué necesitaban verificar.',
+      ),
+    ],
+    'como-encuentran-el-camino-las-aves-migratorias': [
+      Question(
+        id: 'aves_q1',
+        text:
+            '¿Por qué sería incorrecto decir que todas las aves migratorias se orientan únicamente con el Sol?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.inferential,
+        options: [
+          'Porque combinan diferentes señales y algunas migran de noche',
+          'Porque el Sol no cambia nunca de posición',
+          'Porque solamente las aves jóvenes observan el Sol',
+          'Porque todas siguen exclusivamente accidentes geográficos',
+        ],
+        correctAnswer:
+            'Porque combinan diferentes señales y algunas migran de noche',
+        explanation:
+            'El texto describe varias fuentes de orientación, como Sol, estrellas, campo magnético y accidentes geográficos.',
+      ),
+      Question(
+        id: 'aves_q2',
+        text:
+            '¿Qué ventaja ofrece el campo magnético cuando el cielo está cubierto?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.inferential,
+        options: [
+          'Puede servir como referencia cuando no se ven el Sol ni las estrellas',
+          'Permite a las aves volar más rápido',
+          'Hace que las aves reconozcan automáticamente todos los ríos',
+          'Evita que las aves tengan que descansar',
+        ],
+        correctAnswer:
+            'Puede servir como referencia cuando no se ven el Sol ni las estrellas',
+        explanation:
+            'El campo magnético puede funcionar como una brújula natural incluso cuando las señales visuales del cielo no están disponibles.',
+      ),
+      Question(
+        id: 'aves_q3',
+        text:
+            '¿Qué observación apoya la idea de que parte de la migración es heredada?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.literal,
+        options: [
+          'Algunas aves jóvenes realizan su primer viaje sin conocer previamente la ruta',
+          'Las aves adultas pueden mejorar sus rutas',
+          'Algunas aves reconocen costas y montañas',
+          'Los científicos estudian diferentes especies',
+        ],
+        correctAnswer:
+            'Algunas aves jóvenes realizan su primer viaje sin conocer previamente la ruta',
+        explanation:
+            'Si pueden iniciar una migración sin haber aprendido antes el recorrido, parte de ese comportamiento debe provenir de información heredada.',
+      ),
+      Question(
+        id: 'aves_q4',
+        text: '¿Qué función cumple la experiencia según el texto?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.inferential,
+        options: [
+          'Permite mejorar rutas y aprender a evitar riesgos',
+          'Reemplaza completamente el comportamiento heredado',
+          'Hace innecesarias todas las señales naturales',
+          'Solo sirve para encontrar alimento durante el viaje',
+        ],
+        correctAnswer: 'Permite mejorar rutas y aprender a evitar riesgos',
+        explanation:
+            'Las aves adultas pueden modificar y perfeccionar sus rutas gracias a lo aprendido en migraciones anteriores.',
+      ),
+      Question(
+        id: 'aves_q5',
+        text:
+            '¿Por qué el autor dice que hablar de un simple "mapa dentro de la cabeza" sería una simplificación?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.reflection,
+        options: [
+          'Porque la orientación depende de varios mecanismos y fuentes de información',
+          'Porque las aves no tienen memoria',
+          'Porque los mapas solo sirven en tierra',
+          'Porque los científicos ya conocen todos los mecanismos',
+        ],
+        correctAnswer:
+            'Porque la orientación depende de varios mecanismos y fuentes de información',
+        explanation:
+            'El texto insiste en que la migración combina señales naturales, comportamiento heredado y aprendizaje.',
+      ),
+      Question(
+        id: 'aves_q6',
+        text:
+            'En este texto, ¿qué significa mejor que todavía existan "preguntas abiertas"?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.vocabulary,
+        options: [
+          'Hay aspectos que todavía no se comprenden completamente',
+          'Los científicos no han comenzado a investigar',
+          'Las respuestas cambian todos los días',
+          'Las aves esconden deliberadamente información',
+        ],
+        correctAnswer:
+            'Hay aspectos que todavía no se comprenden completamente',
+        explanation:
+            'Aunque se conocen muchos mecanismos, los investigadores todavía estudian cómo se combinan exactamente.',
+      ),
+      Question(
+        id: 'aves_q7',
+        text: '¿Cuál representa mejor la idea principal del texto?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.mainIdea,
+        options: [
+          'Las aves migratorias utilizan una combinación compleja de señales y aprendizaje para orientarse',
+          'Las estrellas son la herramienta más importante para todas las aves',
+          'Las aves jóvenes se orientan mejor que las adultas',
+          'La migración ocurre principalmente para escapar del frío',
+        ],
+        correctAnswer:
+            'Las aves migratorias utilizan una combinación compleja de señales y aprendizaje para orientarse',
+        explanation:
+            'El texto explica distintos mecanismos y destaca que ninguno actúa necesariamente de forma aislada.',
+      ),
+    ],
+    'la-carta-que-llego-veinte-anos-tarde': [
+      Question(
+        id: 'carta_q1',
+        text: '¿Qué creía la familia sobre Julián antes de encontrar la carta?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.literal,
+        options: [
+          'Que había decidido alejarse definitivamente de ellos',
+          'Que nunca había recibido noticias de Elena',
+          'Que seguía trabajando en San Jacinto',
+          'Que había enviado varias cartas durante los años',
+        ],
+        correctAnswer: 'Que había decidido alejarse definitivamente de ellos',
+        explanation:
+            'Durante años interpretaron su ausencia y falta de contacto como una decisión de cortar la relación familiar.',
+      ),
+      Question(
+        id: 'carta_q2',
+        text:
+            '¿Qué información de la carta entraba en conflicto con esa versión familiar?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.inferential,
+        options: [
+          'Julián lamentaba la discusión y planeaba regresar',
+          'Julián decía que nunca volvería al pueblo',
+          'Elena había enviado dinero a Julián',
+          'Julián no conocía la dirección de su familia',
+        ],
+        correctAnswer: 'Julián lamentaba la discusión y planeaba regresar',
+        explanation:
+            'La intención expresada en la carta no coincidía con la idea de que Julián hubiera querido desaparecer para siempre.',
+      ),
+      Question(
+        id: 'carta_q3',
+        text:
+            '¿Por qué fue importante encontrar la nota donde Elena decía que esperaba noticias de Julián?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.inferential,
+        options: [
+          'Mostraba que Elena tampoco parecía creer que Julián quisiera cortar toda relación',
+          'Demostraba que Elena había recibido la carta',
+          'Confirmaba que Julián ya había regresado al pueblo',
+          'Probaba que la oficina de correos había leído el sobre',
+        ],
+        correctAnswer:
+            'Mostraba que Elena tampoco parecía creer que Julián quisiera cortar toda relación',
+        explanation:
+            'La nota aportaba otra evidencia de que la interpretación familiar posterior podía estar equivocada.',
+      ),
+      Question(
+        id: 'carta_q4',
+        text:
+            '¿Qué descubrió Clara al investigar los meses posteriores a la partida de Julián?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.literal,
+        options: [
+          'Que había sufrido un accidente después de trabajar algunos meses',
+          'Que había vuelto en secreto a San Jacinto',
+          'Que nunca había trabajado en la mina',
+          'Que había enviado otra carta desde el extranjero',
+        ],
+        correctAnswer:
+            'Que había sufrido un accidente después de trabajar algunos meses',
+        explanation:
+            'Los registros mostraron que trabajó cuatro meses y posteriormente fue trasladado a otra ciudad tras un accidente.',
+      ),
+      Question(
+        id: 'carta_q5',
+        text:
+            '¿Qué detalle permite concluir que la carta probablemente nunca fue enviada?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.inferential,
+        options: [
+          'El sello indicaba que nunca había salido oficialmente de San Jacinto',
+          'El sobre estaba cubierto de polvo',
+          'La dirección todavía existía',
+          'La letra de Julián era reconocible',
+        ],
+        correctAnswer:
+            'El sello indicaba que nunca había salido oficialmente de San Jacinto',
+        explanation:
+            'El sello casi borrado y la explicación de la encargada indicaban que probablemente quedó atrapada antes del despacho.',
+      ),
+      Question(
+        id: 'carta_q6',
+        text:
+            '¿Qué significa mejor la frase "el silencio no había sido una decisión"?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.reflection,
+        options: [
+          'La ausencia de noticias fue causada por circunstancias y no necesariamente por voluntad de Julián',
+          'Julián nunca había hablado con su familia',
+          'La familia había decidido no responder sus cartas',
+          'El accidente hizo que Julián perdiera la capacidad de comunicarse',
+        ],
+        correctAnswer:
+            'La ausencia de noticias fue causada por circunstancias y no necesariamente por voluntad de Julián',
+        explanation:
+            'La familia había interpretado el silencio como rechazo, pero las nuevas pruebas mostraron otras causas posibles.',
+      ),
+      Question(
+        id: 'carta_q7',
+        text:
+            '¿Qué cambió realmente gracias a la carta, si no podía modificar los hechos del pasado?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.inferential,
+        options: [
+          'La interpretación que la familia tenía sobre Julián',
+          'La fecha en que Julián abandonó el pueblo',
+          'El accidente que sufrió Julián',
+          'La ubicación de la antigua oficina de correos',
+        ],
+        correctAnswer: 'La interpretación que la familia tenía sobre Julián',
+        explanation:
+            'La carta permitió comprender de otra manera sus intenciones y cuestionar la historia repetida durante años.',
+      ),
+      Question(
+        id: 'carta_q8',
+        text: '¿Cuál es la idea más profunda del cuento?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.mainIdea,
+        options: [
+          'Una explicación nueva puede cambiar cómo interpretamos acontecimientos del pasado',
+          'Las cartas antiguas siempre contienen secretos importantes',
+          'Las oficinas de correos deben conservar todos los sobres',
+          'Las familias deberían evitar discutir antes de viajar',
+        ],
+        correctAnswer:
+            'Una explicación nueva puede cambiar cómo interpretamos acontecimientos del pasado',
+        explanation:
+            'El cuento muestra que una misma serie de hechos puede comprenderse de manera distinta cuando aparece nueva evidencia.',
+      ),
+    ],
+    'el-secreto-bajo-el-hielo': [
+      Question(
+        id: 'hielo_q1',
+        text:
+            '¿Por qué los núcleos de hielo pueden entregar información sobre el pasado?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.inferential,
+        options: [
+          'Porque conservan burbujas, partículas y otros materiales atrapados en distintas capas',
+          'Porque el hielo recuerda automáticamente la temperatura exacta de cada año',
+          'Porque los investigadores escriben información sobre cada capa',
+          'Porque las capas más profundas siempre contienen volcanes',
+        ],
+        correctAnswer:
+            'Porque conservan burbujas, partículas y otros materiales atrapados en distintas capas',
+        explanation:
+            'Las distintas capas pueden conservar materiales correspondientes a períodos diferentes y funcionan como evidencias del ambiente pasado.',
+      ),
+      Question(
+        id: 'hielo_q2',
+        text: '¿Qué explicación se propuso primero para las partículas negras?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.literal,
+        options: [
+          'Que podían ser cenizas volcánicas',
+          'Que eran restos de animales',
+          'Que provenían de contaminación moderna',
+          'Que eran pequeñas semillas',
+        ],
+        correctAnswer: 'Que podían ser cenizas volcánicas',
+        explanation:
+            'Uno de los investigadores propuso que las partículas podían corresponder a cenizas de una erupción.',
+      ),
+      Question(
+        id: 'hielo_q3',
+        text:
+            '¿Por qué el equipo no aceptó inmediatamente la hipótesis volcánica?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.reflection,
+        options: [
+          'Porque existían otras explicaciones posibles que también debían comprobar',
+          'Porque Camila no conocía volcanes cercanos',
+          'Porque las partículas eran demasiado pequeñas',
+          'Porque los volcanes no producen partículas negras',
+        ],
+        correctAnswer:
+            'Porque existían otras explicaciones posibles que también debían comprobar',
+        explanation:
+            'También consideraron incendios forestales y analizaron la composición antes de decidir qué explicación estaba mejor apoyada.',
+      ),
+      Question(
+        id: 'hielo_q4',
+        text:
+            '¿Qué evidencia fortaleció la posibilidad de un origen volcánico?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.literal,
+        options: [
+          'La presencia de minerales comunes en materiales volcánicos',
+          'La existencia de montañas alrededor del lago',
+          'La profundidad de la perforación',
+          'El color oscuro de la muestra por sí solo',
+        ],
+        correctAnswer:
+            'La presencia de minerales comunes en materiales volcánicos',
+        explanation:
+            'El análisis encontró una composición compatible con materiales producidos por erupciones.',
+      ),
+      Question(
+        id: 'hielo_q5',
+        text:
+            '¿Por qué la ausencia de registros de una erupción cercana no descartó la hipótesis?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.inferential,
+        options: [
+          'Porque las partículas podían haber sido transportadas desde un volcán lejano',
+          'Porque los registros históricos siempre son incorrectos',
+          'Porque las cenizas solo se producen lejos de los volcanes',
+          'Porque Camila encontró otro volcán bajo el lago',
+        ],
+        correctAnswer:
+            'Porque las partículas podían haber sido transportadas desde un volcán lejano',
+        explanation:
+            'Las partículas volcánicas pueden desplazarse grandes distancias por la atmósfera.',
+      ),
+      Question(
+        id: 'hielo_q6',
+        text:
+            '¿Qué significa que la coincidencia encontrada "no demostraba con absoluta certeza" el origen de las partículas?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.vocabulary,
+        options: [
+          'La explicación estaba bien apoyada, pero todavía podía existir alguna alternativa',
+          'La explicación debía ser descartada completamente',
+          'Los investigadores no habían encontrado ninguna evidencia',
+          'La ciencia nunca permite llegar a conclusiones',
+        ],
+        correctAnswer:
+            'La explicación estaba bien apoyada, pero todavía podía existir alguna alternativa',
+        explanation:
+            'La evidencia hacía razonable la hipótesis, aunque no permitía afirmar que fuera la única explicación posible.',
+      ),
+      Question(
+        id: 'hielo_q7',
+        text:
+            '¿Qué comportamiento de Camila contribuyó más al avance de la investigación?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.inferential,
+        options: [
+          'Cuestionó la suposición de que el origen debía encontrarse cerca del lago',
+          'Insistió en que su primera idea debía ser correcta',
+          'Decidió ignorar los registros históricos',
+          'Propuso abandonar el análisis de las muestras',
+        ],
+        correctAnswer:
+            'Cuestionó la suposición de que el origen debía encontrarse cerca del lago',
+        explanation:
+            'Su pregunta permitió ampliar la búsqueda y comparar las partículas con erupciones ocurridas mucho más lejos.',
+      ),
+      Question(
+        id: 'hielo_q8',
+        text: '¿Cuál es la idea principal del texto?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.mainIdea,
+        options: [
+          'La ciencia construye explicaciones comparando hipótesis y evidencias',
+          'Las erupciones volcánicas pueden destruir lagos congelados',
+          'Los registros históricos son menos útiles que los experimentos',
+          'Los estudiantes suelen encontrar mejores respuestas que los científicos',
+        ],
+        correctAnswer:
+            'La ciencia construye explicaciones comparando hipótesis y evidencias',
+        explanation:
+            'Todo el proceso muestra cómo se proponen explicaciones, se ponen a prueba y se comparan con distintas fuentes de evidencia.',
+      ),
+    ],
+    'la-ciudad-que-aprendio-a-ahorrar-agua': [
+      Question(
+        id: 'agua_q1',
+        text:
+            '¿Por qué las primeras campañas no resolvieron por sí solas el problema?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.inferential,
+        options: [
+          'Porque una parte importante del desperdicio ocurría también en la infraestructura',
+          'Porque los habitantes se negaron completamente a ahorrar agua',
+          'Porque la ciudad no tenía medidores',
+          'Porque las campañas aumentaron el consumo doméstico',
+        ],
+        correctAnswer:
+            'Porque una parte importante del desperdicio ocurría también en la infraestructura',
+        explanation:
+            'El estudio mostró que mucha agua se perdía debido a filtraciones antes de llegar a las viviendas.',
+      ),
+      Question(
+        id: 'agua_q2',
+        text:
+            '¿Qué ventaja tenía reparar las tuberías aunque fuera una medida costosa?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.inferential,
+        options: [
+          'Permitía ahorrar agua de manera continua durante años',
+          'Eliminaba la necesidad de ahorrar en las viviendas',
+          'Permitía aumentar inmediatamente los embalses',
+          'Reducía la cantidad de habitantes de la ciudad',
+        ],
+        correctAnswer: 'Permitía ahorrar agua de manera continua durante años',
+        explanation:
+            'Una reparación de infraestructura podía reducir pérdidas constantemente, sin depender de decisiones diarias.',
+      ),
+      Question(
+        id: 'agua_q3',
+        text: '¿Por qué comenzaron a regar los parques temprano por la mañana?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.literal,
+        options: [
+          'Para disminuir la evaporación',
+          'Para que las personas no vieran el riego',
+          'Porque las plantas solo absorben agua de madrugada',
+          'Para reducir el tamaño de los parques',
+        ],
+        correctAnswer: 'Para disminuir la evaporación',
+        explanation:
+            'En las horas menos calurosas se pierde menos agua por evaporación.',
+      ),
+      Question(
+        id: 'agua_q4',
+        text:
+            '¿Qué preocupación existía respecto de aumentar mucho el precio del agua?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.inferential,
+        options: [
+          'Podía perjudicar especialmente a las familias con menos recursos',
+          'Podía provocar más lluvias',
+          'Podía aumentar las filtraciones de las tuberías',
+          'Podía impedir que la ciudad midiera el consumo',
+        ],
+        correctAnswer:
+            'Podía perjudicar especialmente a las familias con menos recursos',
+        explanation:
+            'Un aumento uniforme podía generar efectos distintos según la situación económica de cada familia.',
+      ),
+      Question(
+        id: 'agua_q5',
+        text:
+            '¿Qué principio refleja el sistema de tarifas que finalmente se utilizó?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.reflection,
+        options: [
+          'Garantizar un consumo básico accesible y cobrar más por consumos elevados',
+          'Cobrar exactamente lo mismo a todos sin importar cuánto consumieran',
+          'Eliminar el costo del agua para quienes ahorraran',
+          'Prohibir completamente los consumos superiores al promedio',
+        ],
+        correctAnswer:
+            'Garantizar un consumo básico accesible y cobrar más por consumos elevados',
+        explanation:
+            'La medida intentó combinar incentivo al ahorro con acceso a una cantidad básica de agua.',
+      ),
+      Question(
+        id: 'agua_q6',
+        text:
+            '¿Qué resultado sorprendió a los investigadores al evaluar el programa?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.inferential,
+        options: [
+          'Las mejoras de infraestructura produjeron grandes ahorros sin exigir acciones diarias a la población',
+          'Las campañas educativas no tuvieron ningún efecto',
+          'Las nuevas tarifas fueron la única medida útil',
+          'La mayoría de las fugas se encontraba dentro de las viviendas',
+        ],
+        correctAnswer:
+            'Las mejoras de infraestructura produjeron grandes ahorros sin exigir acciones diarias a la población',
+        explanation:
+            'La reducción no dependió únicamente del comportamiento individual; las modificaciones estructurales fueron muy importantes.',
+      ),
+      Question(
+        id: 'agua_q7',
+        text:
+            '¿Por qué la ciudad mantuvo las medidas después de que regresaron las lluvias?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.inferential,
+        options: [
+          'Porque también aumentaban la preparación frente a futuras sequías',
+          'Porque los embalses seguían completamente vacíos',
+          'Porque estaba prohibido modificar las reglas',
+          'Porque las lluvias hacían aumentar las filtraciones',
+        ],
+        correctAnswer:
+            'Porque también aumentaban la preparación frente a futuras sequías',
+        explanation:
+            'La experiencia mostró que la eficiencia no solo servía durante una emergencia inmediata.',
+      ),
+      Question(
+        id: 'agua_q8',
+        text: '¿Cuál resume mejor la conclusión general del texto?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.mainIdea,
+        options: [
+          'Los problemas complejos pueden requerir combinar cambios individuales, infraestructura y políticas',
+          'Las campañas educativas son suficientes para solucionar cualquier sequía',
+          'El precio es siempre la herramienta más eficaz para reducir el consumo',
+          'La principal causa de las sequías son las tuberías defectuosas',
+        ],
+        correctAnswer:
+            'Los problemas complejos pueden requerir combinar cambios individuales, infraestructura y políticas',
+        explanation:
+            'Valle Claro consiguió mejores resultados al utilizar varias estrategias complementarias.',
+      ),
+    ],
+    'la-ultima-senal-del-observatorio': [
+      Question(
+        id: 'observatorio_q1',
+        text:
+            '¿Qué característica hizo pensar a Renata que la señal no era simplemente ruido aleatorio?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.inferential,
+        options: [
+          'La secuencia se repetía siempre de la misma manera',
+          'La señal provenía de una montaña',
+          'Daniel había construido la radio',
+          'El observatorio estaba abandonado',
+        ],
+        correctAnswer: 'La secuencia se repetía siempre de la misma manera',
+        explanation:
+            'La regularidad de los pulsos sugería que había un mecanismo produciéndolos.',
+      ),
+      Question(
+        id: 'observatorio_q2',
+        text: '¿Cómo determinaron aproximadamente el origen de la señal?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.literal,
+        options: [
+          'Utilizando una antena direccional',
+          'Siguiendo cables eléctricos',
+          'Preguntando al cuidador',
+          'Consultando registros históricos',
+        ],
+        correctAnswer: 'Utilizando una antena direccional',
+        explanation:
+            'Daniel realizó mediciones que indicaron que la señal provenía desde la montaña del observatorio.',
+      ),
+      Question(
+        id: 'observatorio_q3',
+        text:
+            '¿Qué descubrimiento explicaba que el transmisor pudiera seguir funcionando aunque el observatorio estuviera cerrado?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.inferential,
+        options: [
+          'Estaba conectado a un panel solar',
+          'El cuidador lo encendía cada noche',
+          'Tenía una batería de cinco años de duración',
+          'Recibía electricidad desde el nuevo observatorio',
+        ],
+        correctAnswer: 'Estaba conectado a un panel solar',
+        explanation:
+            'El pequeño panel permitía alimentar el equipo de manera independiente.',
+      ),
+      Question(
+        id: 'observatorio_q4',
+        text: '¿Por qué se repetía exactamente la misma secuencia?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.inferential,
+        options: [
+          'La memoria estaba dañada y el sistema reiniciaba continuamente el mismo fragmento',
+          'Alguien había programado un mensaje secreto',
+          'El panel solar se apagaba después de cada transmisión',
+          'La radio de Daniel solo podía captar esa parte',
+        ],
+        correctAnswer:
+            'La memoria estaba dañada y el sistema reiniciaba continuamente el mismo fragmento',
+        explanation:
+            'La falla impedía completar la transmisión y hacía que el dispositivo comenzara nuevamente.',
+      ),
+      Question(
+        id: 'observatorio_q5',
+        text:
+            '¿Qué nueva pregunta de Sofía mostró que la explicación todavía estaba incompleta?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.reflection,
+        options: [
+          'Por qué la señal había comenzado a escucharse justo esa semana',
+          'Por qué el observatorio había sido construido en una montaña',
+          'Quién había fabricado el transmisor',
+          'Por qué Daniel estudiaba radio',
+        ],
+        correctAnswer:
+            'Por qué la señal había comenzado a escucharse justo esa semana',
+        explanation:
+            'Aunque ya sabían qué dispositivo emitía los pulsos, todavía faltaba explicar por qué había vuelto a activarse recientemente.',
+      ),
+      Question(
+        id: 'observatorio_q6',
+        text: '¿Qué papel tuvo la limpieza de los arbustos?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.inferential,
+        options: [
+          'Permitió que el panel solar recibiera nuevamente suficiente luz',
+          'Reparó accidentalmente la memoria del transmisor',
+          'Desbloqueó la frecuencia de la radio',
+          'Desconectó los equipos principales del observatorio',
+        ],
+        correctAnswer:
+            'Permitió que el panel solar recibiera nuevamente suficiente luz',
+        explanation:
+            'Al despejar el techo, el panel recuperó suficiente energía para encender el sistema.',
+      ),
+      Question(
+        id: 'observatorio_q7',
+        text:
+            '¿Cuál de estas cadenas representa mejor la explicación completa del misterio?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.reflection,
+        options: [
+          'Limpieza del techo → panel recibe luz → transmisor se activa → memoria dañada repite el fragmento',
+          'Radio encendida → observatorio recibe energía → memoria se rompe → panel solar funciona',
+          'Cuidador limpia arbustos → señal espacial llega → transmisor la copia → radio la recibe',
+          'Memoria dañada → observatorio se cierra → panel pierde energía → arbustos transmiten pulsos',
+        ],
+        correctAnswer:
+            'Limpieza del techo → panel recibe luz → transmisor se activa → memoria dañada repite el fragmento',
+        explanation:
+            'La señal surgió por la combinación de varios factores conectados entre sí.',
+      ),
+      Question(
+        id: 'observatorio_q8',
+        text:
+            '¿Por qué Daniel considera finalmente que la explicación es interesante aunque no sea una señal extraterrestre?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.inferential,
+        options: [
+          'Porque muestra cómo varias causas sencillas pueden producir algo inicialmente misterioso',
+          'Porque demuestra que los extraterrestres no existen',
+          'Porque el transmisor era más moderno de lo esperado',
+          'Porque su radio había funcionado por primera vez',
+        ],
+        correctAnswer:
+            'Porque muestra cómo varias causas sencillas pueden producir algo inicialmente misterioso',
+        explanation:
+            'El interés está en comprender cómo distintas condiciones se combinaron para generar el fenómeno.',
+      ),
+      Question(
+        id: 'observatorio_q9',
+        text: '¿Cuál es la idea principal del cuento?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.mainIdea,
+        options: [
+          'Algunos problemas solo se explican al comprender cómo varias causas se relacionan',
+          'Los aparatos antiguos siempre generan señales extrañas',
+          'Los observatorios abandonados deberían mantenerse cerrados',
+          'Las explicaciones simples suelen ser incorrectas',
+        ],
+        correctAnswer:
+            'Algunos problemas solo se explican al comprender cómo varias causas se relacionan',
+        explanation:
+            'El misterio no se resolvió con una única pista, sino reconstruyendo una cadena completa de condiciones.',
+      ),
+    ],
+    'el-viaje-de-amaru-por-la-cordillera': [
+      Question(
+        id: 'amaru_q1',
+        text: '¿Cuál era el propósito principal del viaje?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.literal,
+        options: [
+          'Transportar medicamentos, herramientas y cartas hasta una comunidad',
+          'Encontrar el sendero más corto de la cordillera',
+          'Realizar una competencia entre rutas',
+          'Visitar distintos pueblos de la montaña',
+        ],
+        correctAnswer:
+            'Transportar medicamentos, herramientas y cartas hasta una comunidad',
+        explanation:
+            'El viaje tenía una función concreta: entregar materiales importantes a la comunidad.',
+      ),
+      Question(
+        id: 'amaru_q2',
+        text: '¿Por qué el padre de Amaru dudó de tomar el sendero más corto?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.inferential,
+        options: [
+          'Observó señales de mal tiempo en las zonas altas',
+          'No sabía leer el mapa',
+          'El sendero estaba prohibido permanentemente',
+          'Quería tardar dos días en el viaje',
+        ],
+        correctAnswer: 'Observó señales de mal tiempo en las zonas altas',
+        explanation:
+            'Las nubes y posteriormente el pronóstico mostraban que la ruta elevada podía volverse peligrosa.',
+      ),
+      Question(
+        id: 'amaru_q3',
+        text:
+            '¿Qué significa la frase "un camino más corto no siempre es un camino más rápido"?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.vocabulary,
+        options: [
+          'Una ruta con menos distancia puede provocar retrasos si presenta mayores dificultades',
+          'Todos los caminos largos permiten caminar más rápido',
+          'Los mapas suelen indicar distancias incorrectas',
+          'Las rutas de montaña siempre deben evitarse',
+        ],
+        correctAnswer:
+            'Una ruta con menos distancia puede provocar retrasos si presenta mayores dificultades',
+        explanation:
+            'El sendero corto habría podido obligarlos a regresar debido al mal clima.',
+      ),
+      Question(
+        id: 'amaru_q4',
+        text:
+            '¿Qué hecho confirmó después que la decisión de evitar el paso elevado había sido razonable?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.literal,
+        options: [
+          'El paso fue cerrado por viento y acumulación de nieve',
+          'Teresa conocía una ruta diferente',
+          'La mula comenzó a cojear',
+          'El puente del río estaba en reparación',
+        ],
+        correctAnswer: 'El paso fue cerrado por viento y acumulación de nieve',
+        explanation:
+            'El cierre mostró que probablemente habrían quedado detenidos o tendrían que haber regresado.',
+      ),
+      Question(
+        id: 'amaru_q5',
+        text:
+            '¿Por qué Amaru se sintió impaciente después de encontrar a Teresa?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.inferential,
+        options: [
+          'Porque ayudarla significaba avanzar todavía más lentamente',
+          'Porque pensaba que Teresa había elegido el sendero equivocado',
+          'Porque quería quedarse con una de las mulas',
+          'Porque Teresa no llevaba medicamentos',
+        ],
+        correctAnswer:
+            'Porque ayudarla significaba avanzar todavía más lentamente',
+        explanation:
+            'Amaru seguía evaluando el viaje principalmente por cuánto tiempo tardarían.',
+      ),
+      Question(
+        id: 'amaru_q6',
+        text:
+            '¿Qué relación existe entre el paso de montaña y el puente peatonal?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.reflection,
+        options: [
+          'Ambos parecen alternativas más rápidas, pero las condiciones reales hacen que no sean adecuadas',
+          'Ambos fueron destruidos por el mismo temporal',
+          'Ambos solo podían cruzarse utilizando mulas',
+          'Ambos aparecen incorrectamente ubicados en el mapa',
+        ],
+        correctAnswer:
+            'Ambos parecen alternativas más rápidas, pero las condiciones reales hacen que no sean adecuadas',
+        explanation:
+            'En ambos casos, una opción atractiva en teoría resultó poco útil al considerar la situación completa.',
+      ),
+      Question(
+        id: 'amaru_q7',
+        text:
+            '¿Por qué preguntaron a un habitante antes de dirigirse hacia el puente peatonal?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.inferential,
+        options: [
+          'Querían comprobar si esa alternativa era realmente adecuada antes de utilizarla',
+          'No sabían hacia dónde corría el río',
+          'Querían abandonar a Teresa y las mulas',
+          'Necesitaban saber quién había construido el puente',
+        ],
+        correctAnswer:
+            'Querían comprobar si esa alternativa era realmente adecuada antes de utilizarla',
+        explanation:
+            'Buscaron información antes de asumir que el puente serviría para todo el grupo.',
+      ),
+      Question(
+        id: 'amaru_q8',
+        text: '¿Qué cambio principal ocurre en la manera de pensar de Amaru?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.inferential,
+        options: [
+          'Deja de medir el éxito solo por la rapidez y considera seguridad y propósito',
+          'Aprende que siempre debe elegir el camino más largo',
+          'Concluye que viajar con otras personas es un error',
+          'Decide que los mapas no son herramientas útiles',
+        ],
+        correctAnswer:
+            'Deja de medir el éxito solo por la rapidez y considera seguridad y propósito',
+        explanation:
+            'Al final comprende que el objetivo era hacer llegar las provisiones y personas de manera segura, no obtener el menor tiempo posible.',
+      ),
+      Question(
+        id: 'amaru_q9',
+        text:
+            '¿Qué quiere decir Amaru cuando piensa que había comparado el viaje real con un "tiempo imaginario"?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.reflection,
+        options: [
+          'Se frustraba comparando lo ocurrido con escenarios alternativos que nunca sucedieron',
+          'Había calculado incorrectamente la hora durante todo el viaje',
+          'Pensaba que el reloj de su padre no funcionaba',
+          'Había imaginado una ruta que no aparecía en ningún mapa',
+        ],
+        correctAnswer:
+            'Se frustraba comparando lo ocurrido con escenarios alternativos que nunca sucedieron',
+        explanation:
+            'Amaru pensaba constantemente cuánto habría tardado en circunstancias ideales que en realidad no podían comprobarse.',
+      ),
+      Question(
+        id: 'amaru_q10',
+        text: '¿Cuál resume mejor la idea principal de la historia?',
+        type: QuestionType.multipleChoice,
+        comprehensionType: ComprehensionType.mainIdea,
+        options: [
+          'La mejor decisión es la que permite cumplir el objetivo considerando riesgos y necesidades, no necesariamente la más rápida',
+          'Ayudar a otras personas siempre provoca retrasos innecesarios',
+          'Los senderos de montaña son menos eficientes que las carreteras',
+          'Para viajar bien es necesario evitar cualquier cambio de plan',
+        ],
+        correctAnswer:
+            'La mejor decisión es la que permite cumplir el objetivo considerando riesgos y necesidades, no necesariamente la más rápida',
+        explanation:
+            'Todo el viaje obliga a Amaru a redefinir qué significa realmente elegir un camino eficiente.',
+      ),
+    ],
   };
 }

@@ -16,13 +16,25 @@ class ProgressRepository {
     final completedStoryIds =
         preferences.getStringList(_completedStoryIdsKey) ?? [];
 
+    final storedStreak = preferences.getInt(_streakKey) ?? 0;
+    final lastReadingDate = preferences.getString(_lastReadingDateKey);
+
+    final effectiveStreak = _calculateCurrentStreak(
+      storedStreak: storedStreak,
+      lastReadingDate: lastReadingDate,
+    );
+
+    if (effectiveStreak != storedStreak) {
+      await preferences.setInt(_streakKey, effectiveStreak);
+    }
+
     return UserProgress(
       storiesCompleted: completedStoryIds.length,
       stars: preferences.getInt(_starsKey) ?? 0,
       adventuresCompleted: preferences.getInt(_adventuresCompletedKey) ?? 0,
-      streak: preferences.getInt(_streakKey) ?? 0,
+      streak: effectiveStreak,
       completedStoryIds: completedStoryIds,
-      lastReadingDate: preferences.getString(_lastReadingDateKey),
+      lastReadingDate: lastReadingDate,
     );
   }
 
@@ -86,9 +98,16 @@ class ProgressRepository {
 
       final difference = today.difference(normalizedLastDate).inDays;
 
-      if (difference == 1) {
+      if (difference == 0) {
+        // Ya realizó una historia hoy.
+        // La racha no aumenta otra vez.
+        newStreak = currentProgress.streak;
+      } else if (difference == 1) {
+        // Día consecutivo.
         newStreak = currentProgress.streak + 1;
-      } else if (difference > 1) {
+      } else {
+        // Se perdió al menos un día.
+        // Comienza una nueva racha.
         newStreak = 1;
       }
     }
@@ -106,6 +125,41 @@ class ProgressRepository {
     await saveProgress(updatedProgress);
 
     return updatedProgress;
+  }
+
+  int _calculateCurrentStreak({
+    required int storedStreak,
+    required String? lastReadingDate,
+  }) {
+    if (lastReadingDate == null || storedStreak == 0) {
+      return 0;
+    }
+
+    final now = DateTime.now();
+
+    final today = DateTime(now.year, now.month, now.day);
+
+    final parsedLastDate = DateTime.tryParse(lastReadingDate);
+
+    if (parsedLastDate == null) {
+      return 0;
+    }
+
+    final normalizedLastDate = DateTime(
+      parsedLastDate.year,
+      parsedLastDate.month,
+      parsedLastDate.day,
+    );
+
+    final difference = today.difference(normalizedLastDate).inDays;
+
+    // Leyó hoy o ayer: la racha todavía está viva.
+    if (difference <= 1) {
+      return storedStreak;
+    }
+
+    // Pasó al menos un día completo sin leer.
+    return 0;
   }
 
   String _dateToString(DateTime date) {
